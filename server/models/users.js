@@ -17,7 +17,7 @@ export default class User {
   create(values) {
     const salt = bcrypt.genSaltSync(10);
     values.password = bcrypt.hashSync(values.password, salt);
-    const sql = 'INSERT INTO users (firstname, lastname, email, telephone, password, image_url) VAlUES( ${firstname}, ${lastname}, ${email}, ${telephone}, ${password}, ${image}) RETURNING id, firstname, lastname, email, telephone, image';
+    const sql = 'INSERT INTO users (firstname, lastname, email, telephone, password, image_url) VAlUES( ${firstname}, ${lastname}, ${email}, ${telephone}, ${password}, ${image}) RETURNING id, firstname, lastname, email, telephone, image_url';
     return this.db.one(sql, values);
   }
   /**

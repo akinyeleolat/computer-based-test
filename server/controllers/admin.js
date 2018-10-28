@@ -7,7 +7,7 @@ import db from '../db';
 
 class AdminController {
   /**
-* @function signup
+* @function adminSignup
 * @memberof AdminController
 * @static
 */

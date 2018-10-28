@@ -5,13 +5,14 @@ import db from '../db';
 
 /** user controller class */
 
-class UserController {
+class AdminController {
   /**
- * @function signup
- * @memberof UserController
- * @static
- */
-  static signup(req, res) {
+* @function signup
+* @memberof AdminController
+* @static
+*/
+  static adminSignup(req, res) {
+    const adminStatus = process.env.ADMIN_DEFAULT;
     let { firstname, lastname, email, telephone, image } = req.body;
     const { password } = req.body;
     firstname = firstname ? firstname.toString().replace(/\s+/g, '') : firstname;
@@ -20,7 +21,7 @@ class UserController {
     email = email ? email.toString().replace(/\s+/g, '') : email;
     image = image ? image.toString().replace(/\s+/g, '') : image;
 
-    return db.task('signup', db => db.users.findByEmail(email)
+    return db.task('signup', db => db.adminUsers.findByEmail(email)
       .then((result) => {
         if (result) {
           return res.status(409).json({
@@ -28,7 +29,7 @@ class UserController {
             message: 'user with this email already exist',
           });
         }
-        return db.users.findByTelephone(telephone)
+        return db.adminUsers.findByTelephone(telephone)
           .then((found) => {
             if (found) {
               return res.status(409).json({
@@ -36,8 +37,9 @@ class UserController {
                 message: 'user with this telephone number already exist',
               });
             }
-            return db.users.create({ firstname, lastname, email, telephone, password, image })
+            return db.adminUsers.create({ firstname, lastname, email, telephone, password, image, adminStatus })
               .then((user) => {
+                  console.log(user);
                 const token = jwt.sign({ id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, telephone: user.telephone, user_image: user.image_url }, process.env.SECRET_KEY, { expiresIn: '24hrs' });
                 return res.status(201).json({
                   success: 'true',
@@ -57,4 +59,4 @@ class UserController {
   }
 }
 
-export default UserController;
+export default AdminController;

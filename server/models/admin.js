@@ -10,26 +10,15 @@ export default class User {
     this.db = db;
   }
   /**
-  * Create a new user.
+  * Create a new admin user.
   * @param {object} values - values gotten from the body of a request.
   */
 
-  create(values) {
-    const salt = bcrypt.genSaltSync(10);
-    values.password = bcrypt.hashSync(values.password, salt);
-    const sql = 'INSERT INTO users (firstname, lastname, email, telephone, password, image_url) VAlUES( ${firstname}, ${lastname}, ${email}, ${telephone}, ${password}, ${image}) RETURNING id, firstname, lastname, email, telephone, image_url';
-    return this.db.one(sql, values);
-  }
 
-  /**
-  * Create a new user.
-  * @param {object} values - values gotten from the body of a request.
-  */
-
- createAdmin(values) {
+ create(values) {
   const salt = bcrypt.genSaltSync(10);
   values.password = bcrypt.hashSync(values.password, salt);
-  const sql = 'INSERT INTO users (firstname, lastname, email, telephone, password, image_url, admin_status) VAlUES( ${firstname}, ${lastname}, ${email}, ${telephone}, ${password}, ${image}, ${adminStatus}) RETURNING id, firstname, lastname, email, telephone, image_url, admin_status';
+  const sql = 'INSERT INTO admin_users (firstname, lastname, email, telephone, admin_password, image_url, admin_status) VAlUES( ${firstname}, ${lastname}, ${email}, ${telephone}, ${password}, ${image}, ${adminStatus}) RETURNING id, firstname, lastname, email, telephone, image_url, admin_status';
   return this.db.one(sql, values);
 }
 
@@ -39,7 +28,7 @@ export default class User {
   */
 
   findById(id) {
-    const sql = 'SELECT * FROM users WHERE id = $1';
+    const sql = 'SELECT * FROM admin_users WHERE id = $1';
     return this.db.oneOrNone(sql, id);
   }
   /**
@@ -48,7 +37,7 @@ export default class User {
   */
 
   findByEmail(email) {
-    const sql = 'SELECT * FROM users WHERE email = $1';
+    const sql = 'SELECT * FROM admin_users WHERE email = $1';
     return this.db.oneOrNone(sql, email);
   }
   /**
@@ -57,7 +46,7 @@ export default class User {
   */
 
   findByTelephone(telephone) {
-    const sql = 'SELECT * FROM users WHERE telephone = $1';
+    const sql = 'SELECT * FROM admin_users WHERE telephone = $1';
     return this.db.oneOrNone(sql, telephone);
   }
   /**
@@ -66,7 +55,7 @@ export default class User {
   */
 
   remove(id) {
-    const sql = 'DELETE FROM users WHERE id = $1';
+    const sql = 'DELETE FROM admin_users WHERE id = $1';
     return this.db.one(sql, id);
   }
   /**
@@ -76,7 +65,7 @@ export default class User {
 
   modify(values, id) {
     values.id = id;
-    const sql = 'UPDATE users SET firstname=${firstname}, lastname=${lastname}, email=${email}, telephone=${telephone} WHERE id=${id} RETURNING *';
+    const sql = 'UPDATE admin_users SET firstname=${firstname}, lastname=${lastname}, email=${email}, telephone=${telephone} WHERE id=${id} RETURNING *';
     return this.db.one(sql, values);
   }
 }

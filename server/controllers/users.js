@@ -55,6 +55,51 @@ class UserController {
         });
       }));
   }
+  /**
+* @function login
+* @memberof UserController
+*
+* @param {Object} req - this is a request object that contains whatever is requested for
+* @param {Object} res - this is a response object to be sent after attending to a request
+*
+* @static
+*/
+
+  static login(req, res) {
+    let { email } = req.body;
+    const { password } = req.body;
+    email = email && email.toString().trim();
+
+    return db.task('signin', data => data.users.findByEmail(email)
+      .then((user) => {
+        if (!user) {
+          return res.status(404).json({
+            success: 'false',
+            message: 'You have entered an invalid email or password',
+          });
+        }
+        const allowEntry = bcrypt.compareSync(password, user.password);
+        if (!allowEntry) {
+          return res.status(401).json({
+            success: 'false',
+            message: 'You have entered an invalid email or password',
+          });
+        }
+        const token = jwt.sign({ id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, telephone: user.telephone, user_image: user.image_url }, process.env.SECRET_KEY, { expiresIn: '24hrs' });
+        return res.status(200).json({
+          success: 'true',
+          message: 'Login was successful',
+          token,
+        });
+      }))
+      .catch((err) => {
+        return res.status(500).json({
+          success: 'false',
+          message: 'unable to login, try again!',
+          err: err.message,
+        });
+      });
+  }
 }
 
 export default UserController;

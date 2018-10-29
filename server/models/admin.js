@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt-nodejs';
 
-/** Class for interacting with the user data table. */
-export default class User {
+/** Class for interacting with the admin data table. */
+export default class Admin {
   /**
   * Class constructor.
   * @param {object} db - Object used to query database.

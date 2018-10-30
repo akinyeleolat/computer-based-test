@@ -5,7 +5,10 @@ CREATE TABLE IF NOT EXISTS users (
    email  VARCHAR(255) NOT NULL UNIQUE,
    telephone  VARCHAR(255) NOT NULL UNIQUE,
    password  VARCHAR(255) NOT NULL,
+   department TEXT NOT NULL,
+   faculty TEXT NOT NULL,
    image_url  VARCHAR(225) NOT NULL,
+   user_status INT NOT NULL,
    created_at  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
    updated_at  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
@@ -19,6 +22,8 @@ CREATE TABLE IF NOT EXISTS admin_users (
    admin_password  VARCHAR(255) NOT NULL,
    image_url  VARCHAR(225) NOT NULL,
    admin_status INT NOT NULL,
+   department TEXT NOT NULL,
+   faculty TEXT NOT NULL,
    created_at  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
    updated_at  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );

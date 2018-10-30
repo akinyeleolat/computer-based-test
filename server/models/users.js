@@ -17,21 +17,9 @@ export default class User {
   create(values) {
     const salt = bcrypt.genSaltSync(10);
     values.password = bcrypt.hashSync(values.password, salt);
-    const sql = 'INSERT INTO users (firstname, lastname, email, telephone, password, image_url) VAlUES( ${firstname}, ${lastname}, ${email}, ${telephone}, ${password}, ${image}) RETURNING id, firstname, lastname, email, telephone, image_url';
+    const sql = 'INSERT INTO users (firstname, lastname, email, telephone, password, department, faculty, image_url, user_status) VAlUES( ${firstname}, ${lastname}, ${email}, ${telephone}, ${password}, ${department}, ${faculty}, ${image}, ${userStatus}) RETURNING id, firstname, lastname, email, telephone, department, faculty, image_url, user_status';
     return this.db.one(sql, values);
   }
-
-  /**
-  * Create a new user.
-  * @param {object} values - values gotten from the body of a request.
-  */
-
- createAdmin(values) {
-  const salt = bcrypt.genSaltSync(10);
-  values.password = bcrypt.hashSync(values.password, salt);
-  const sql = 'INSERT INTO users (firstname, lastname, email, telephone, password, image_url, admin_status) VAlUES( ${firstname}, ${lastname}, ${email}, ${telephone}, ${password}, ${image}, ${adminStatus}) RETURNING id, firstname, lastname, email, telephone, image_url, admin_status';
-  return this.db.one(sql, values);
-}
 
   /**
   * Method for finding a user using the id.

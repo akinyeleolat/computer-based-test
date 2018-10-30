@@ -29,7 +29,7 @@ const signupError = (message) => {
   
   const validateSignup = (req, res, next) => {
     let {
-      email, password, firstname, lastname, telephone, image,
+      email, password, firstname, lastname, telephone, department, faculty, image,
     } = req.body;
     const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
     const urlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/;
@@ -38,6 +38,8 @@ const signupError = (message) => {
     lastname = lastname && lastname.toString().trim();
     password = password && password.toString();
     telephone = telephone && telephone.toString().replace(/\s+/g, '');
+    department = department && department.toString().replace(/\s+/g, '');
+    faculty = faculty && faculty.toString().replace(/\s+/g, '');
   
     if (!email && !password) return next(signupError('Email and Password are required'));
   
@@ -59,6 +61,10 @@ const signupError = (message) => {
     if (telephone && isNaN(telephone)) return next(signupError('telephone number should not contain an alphabet'));
     if (telephone && telephone.length > 11) return next(signupError('telephone number should not be greater than 11 characters'));
     if (telephone && telephone.length < 11) return next(signupError('telephone number should not be less than 11 characters'));
+    
+    if (!department && !faculty) return next(signupError('The name of your department and faculty is required'));
+    if (!department) return next(signupError('The name of your department is required'));
+    if (!faculty) return next(signupError('The name of your faculty is required'));
   
     return next();
   };

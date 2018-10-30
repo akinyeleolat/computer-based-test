@@ -18,7 +18,7 @@ export default class Admin {
  create(values) {
   const salt = bcrypt.genSaltSync(10);
   values.password = bcrypt.hashSync(values.password, salt);
-  const sql = 'INSERT INTO admin_users (firstname, lastname, email, telephone, admin_password, image_url, admin_status) VAlUES( ${firstname}, ${lastname}, ${email}, ${telephone}, ${password}, ${image}, ${adminStatus}) RETURNING id, firstname, lastname, email, telephone, image_url, admin_status';
+  const sql = 'INSERT INTO admin_users (firstname, lastname, email, telephone, admin_password, department, faculty, image_url, admin_status) VAlUES( ${firstname}, ${lastname}, ${email}, ${telephone}, ${password}, ${department}, ${faculty}, ${image}, ${adminStatus}) RETURNING id, firstname, lastname, email, telephone, department, faculty, image_url, admin_status';
   return this.db.one(sql, values);
 }
 

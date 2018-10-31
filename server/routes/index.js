@@ -15,6 +15,7 @@ router.post('/auth/admin/login', middlewares.validateLogin, AdminController.admi
 router.get('/courses',middlewares.verifyUserToken, CourseController.getAllCourses);
 
 router.use('*', middlewares.verifyAdminToken);
+router.get('/users', UserController.getAllUsers);
 router.post('/courses', middlewares.validatePostCourse, CourseController.postCourse);
 router.patch('/courses/:id', middlewares.validateUpdateCourse, CourseController.updateCourse);
 router.delete('/courses/:id', CourseController.deleteCourse);

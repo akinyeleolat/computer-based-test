@@ -111,14 +111,14 @@ class UserController {
       });
   }
   /**
-* @function getAllUsers
-* @memberof CourseController
-*
-* @param {Object} req - this is a request object that contains whatever is requested for
-* @param {Object} res - this is a response object to be sent after attending to a request
-*
-* @static
-*/
+ * @function getAllUsers
+ * @memberof CourseController
+ *
+ * @param {Object} req - this is a request object that contains whatever is requested for
+ * @param {Object} res - this is a response object to be sent after attending to a request
+ *
+ * @static
+ */
 
   static getAllUsers(req, res) {
     const { adminId } = req;

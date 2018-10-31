@@ -111,14 +111,14 @@ class UserController {
       });
   }
   /**
-* @function getAllUsers
-* @memberof CourseController
-*
-* @param {Object} req - this is a request object that contains whatever is requested for
-* @param {Object} res - this is a response object to be sent after attending to a request
-*
-* @static
-*/
+ * @function getAllUsers
+ * @memberof CourseController
+ *
+ * @param {Object} req - this is a request object that contains whatever is requested for
+ * @param {Object} res - this is a response object to be sent after attending to a request
+ *
+ * @static
+ */
 
   static getAllUsers(req, res) {
     const { adminId } = req;
@@ -146,6 +146,50 @@ class UserController {
           message: 'nothing found in the database',
           err: err.message,
         });
+      }));
+  }
+  /**
+* @function getUser
+* @memberof CourseController
+*
+* @param {Object} req - this is a request object that contains whatever is requested for
+* @param {Object} res - this is a response object to be sent after attending to a request
+*
+* @static
+*/
+
+  static getUser(req, res) {
+    const { userId } = req;
+    const id = parseInt(req.params.id, 10);
+    if (isNaN(id)) {
+      return res.status(400).json({
+        success: 'false',
+        message: 'param should be a number not an alphabet',
+      });
+    }
+    return db.task('fetch user', data => data.users.findById(id)
+      .then((user) => {
+        if (user.id !== userId) {
+          return res.status(401).json({
+            success: 'false',
+            message: 'You are unauthorized to get an information that is not yours',
+          });
+        }
+        const { firstname, lastname, email, telephone, department, faculty, image_url } = user;
+        const userProfile = {
+          firstname, lastname, email, telephone, department, faculty, image_url,
+        }
+
+        return res.status(200).json({
+          success: 'true',
+          userProfile,
+        })
+      })
+      .catch((err) => {
+        res.status(500).json({
+          success: 'false',
+          message: err.message,
+        })
       }));
   }
 }

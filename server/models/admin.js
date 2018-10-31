@@ -49,6 +49,12 @@ export default class Admin {
     const sql = 'SELECT * FROM admin_users WHERE telephone = $1';
     return this.db.oneOrNone(sql, telephone);
   }
+    /** Method for getting all users in the database. */
+
+    allData() {
+      const sql = 'SELECT * FROM admin_users';
+      return this.db.many(sql);
+    }
   /**
   * Method for removing a user from the database using the id.
   * @param {number} id - the id of a user.

@@ -41,11 +41,9 @@ class UserController {
             }
             return db.users.create({ firstname, lastname, email, telephone, password, department, faculty, image, userStatus })
               .then((user) => {
-                const token = jwt.sign({ id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, telephone: user.telephone, department: user.department, faculty: user.faculty, user_image: user.image_url }, process.env.SECRET_KEY, { expiresIn: '24hrs' });
                 return res.status(201).json({
                   success: 'true',
-                  message: 'Account created successfully',
-                  token,
+                  message: 'Account created successfully but pending approval within the next 48 hours',
                 });
               });
           });
@@ -88,12 +86,21 @@ class UserController {
             message: 'You have entered an invalid email or password',
           });
         }
-        const token = jwt.sign({ id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, telephone: user.telephone, department: user.department, faculty: user.faculty, user_image: user.image_url }, process.env.SECRET_KEY, { expiresIn: '24hrs' });
-        return res.status(200).json({
-          success: 'true',
-          message: 'Login was successful',
-          token,
-        });
+        const isActive = process.env.USER_ACTIVE;
+        if (user.user_status != isActive) {
+          return res.status(401).json({
+            success: 'false',
+            message: 'Your account is pending approval, please try again later',
+          });
+        }
+        else if (user.user_status == isActive) {
+          const token = jwt.sign({ id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, telephone: user.telephone, department: user.department, faculty: user.faculty, user_image: user.image_url }, process.env.SECRET_KEY, { expiresIn: '24hrs' });
+          return res.status(200).json({
+            success: 'true',
+            message: 'Login was successful',
+            token,
+          });
+        }
       }))
       .catch((err) => {
         return res.status(500).json({

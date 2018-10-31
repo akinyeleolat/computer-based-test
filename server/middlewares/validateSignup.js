@@ -45,6 +45,7 @@ const signupError = (message) => {
   
     if (!email) return next(signupError('Email is required'));
     if (!emailRegex.test(email)) return next(signupError('Email is not valid'));
+    if (!image) return next(signupError('Passport photograph is required'));
     if (!urlRegex.test(image)) return next(signupError('URL is not valid'));
     if (!password) return next(signupError('Password is required'));
     if (password.trim() === '') return next(signupError('Password cannot be empty'));
@@ -58,6 +59,7 @@ const signupError = (message) => {
     if (!lastname) return next(signupError('lastname is required'));
     if (lastname && lastname.length < 3) return next(signupError('lastname must be minimum of 3 characters'));
     if (lastname && lastname.length > 20) return next(signupError('lastname must be maximum of 20 characters'));
+    if (!telephone) return next(signupError('telephone number should be provided'));
     if (telephone && isNaN(telephone)) return next(signupError('telephone number should not contain an alphabet'));
     if (telephone && telephone.length > 11) return next(signupError('telephone number should not be greater than 11 characters'));
     if (telephone && telephone.length < 11) return next(signupError('telephone number should not be less than 11 characters'));

@@ -50,4 +50,14 @@ export default class Course {
     const sql = 'SELECT * FROM courses';
     return this.db.many(sql);
   }
+  /**
+  * Method for modifying course availability.
+  * @param {number} id - the id of a subject course.
+  */
+
+  modify(values, id) {
+    values.id = id;
+    const sql = 'UPDATE courses SET course_availability=${courseAvailability} WHERE id=${id} RETURNING *';
+    return this.db.one(sql, values);
+  }
 }

@@ -40,7 +40,7 @@ export default class Course {
   */
 
   remove(id) {
-    const sql = 'DELETE FROM courses WHERE id = $1';
+    const sql = 'DELETE FROM courses WHERE id = $1 RETURNING *';
     return this.db.one(sql, id);
   }
 

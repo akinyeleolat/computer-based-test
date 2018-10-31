@@ -110,6 +110,44 @@ class UserController {
         });
       });
   }
+  /**
+* @function getAllUsers
+* @memberof CourseController
+*
+* @param {Object} req - this is a request object that contains whatever is requested for
+* @param {Object} res - this is a response object to be sent after attending to a request
+*
+* @static
+*/
+
+  static getAllUsers(req, res) {
+    const { adminId } = req;
+    const superAdminStatus = process.env.ADMIN_SUPER;
+    db.task('find admin user', db => db.admin.findById(adminId)
+      .then((adminFound) => {
+        if (adminFound.admin_status != superAdminStatus) {
+          return res.status(401).json({
+            success: 'false',
+            message: 'You are unauthorized to get candidates information',
+          });
+        }
+        return db.users.allData()
+          .then((user) => {
+            const candidates = [...user];
+            return res.status(200).json({
+              success: 'true',
+              candidates,
+            });
+          })
+      })
+      .catch((err) => {
+        res.status(404).json({
+          success: 'false',
+          message: 'nothing found in the database',
+          err: err.message,
+        });
+      }));
+  }
 }
 
 export default UserController;

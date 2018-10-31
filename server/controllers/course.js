@@ -96,7 +96,6 @@ class CourseController {
     const { adminId } = req;
     const id = parseInt(req.params.id, 10);
     let { courseAvailability } = req.body;
-    console.log(req.body);
     courseAvailability = courseAvailability && courseAvailability.toString().replace(/\s+/g, '');
     const superAdminStatus = process.env.ADMIN_SUPER;
     db.task('modify course availability', data => data.course.findById(id)

@@ -57,6 +57,12 @@ export default class User {
     const sql = 'DELETE FROM users WHERE id = $1';
     return this.db.one(sql, id);
   }
+  /** Method for getting all users in the database. */
+
+  allData() {
+    const sql = 'SELECT * FROM users';
+    return this.db.many(sql);
+  }
   /**
   * Method for modifying user information.
   * @param {number} id - the id of a user.

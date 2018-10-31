@@ -32,7 +32,7 @@ const updateCourseError = (message) => {
     courseAvailability = courseAvailability && courseAvailability.toString().trim();
   
     if (!courseAvailability) return next(updateCourseError('this field cannot be empty. Please provide a value.'));
-    if (courseAvailability !== 'true' || courseAvailability !== 'false') return next(updateCourseError('course availability value can either be true or false.'));
+    if (courseAvailability !== 'true' && courseAvailability !== 'false') return next(updateCourseError('course availability value can either be true or false.'));
     return next();
   };
   export default validateUpdateCourse;

@@ -20,6 +20,7 @@ router.get('/users', UserController.getAllUsers);
 router.patch('/users/:id', middlewares.validateApproveUser, UserController.approveUser);
 router.get('/admins', AdminController.getAllAdminUsers);
 router.get('/admins/:id', AdminController.getAdmin);
+router.patch('/admins/:id', middlewares.validateApproveUser, AdminController.approveAdmin);
 router.post('/courses', middlewares.validatePostCourse, CourseController.postCourse);
 router.patch('/courses/:id', middlewares.validateUpdateCourse, CourseController.updateCourse);
 router.delete('/courses/:id', CourseController.deleteCourse);

@@ -17,6 +17,7 @@ router.get('/users/:id', middlewares.verifyUserToken, UserController.getUser);
 
 router.use('*', middlewares.verifyAdminToken);
 router.get('/users', UserController.getAllUsers);
+router.patch('/users/:id', middlewares.validateApproveUser, UserController.approveUser);
 router.get('/admins', AdminController.getAllAdminUsers);
 router.get('/admins/:id', AdminController.getAdmin);
 router.post('/courses', middlewares.validatePostCourse, CourseController.postCourse);

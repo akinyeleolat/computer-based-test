@@ -192,6 +192,74 @@ class UserController {
         })
       }));
   }
+    /**
+* @function approveUser
+* @memberof UserController
+*
+* @param {Object} req - this is a request object that contains whatever is requested for
+* @param {Object} res - this is a response object to be sent after attending to a request
+*
+* @static
+*/
+  static approveUser(req, res) {
+    const { adminId } = req;
+    const id = parseInt(req.params.id, 10);
+    let { approve } = req.body;
+    approve = approve && approve.toString().replace(/\s+/g, '');
+    const superAdminStatus = process.env.ADMIN_SUPER;
+    db.task('approve a candidate user', data => data.users.findById(id)
+      .then((userFound) => {
+        if (!userFound) {
+          return res.status(400).json({
+            success: 'false',
+            message: 'This user does not exist',
+          });
+        }
+        return db.admin.findById(adminId)
+          .then((adminFound) => {
+            if (adminFound.admin_status != superAdminStatus) {
+              return res.status(401).json({
+                success: 'false',
+                message: 'You are unauthorized to verify a student account',
+              });
+            }
+            if (req.body.approve === 'true') {
+              approve = process.env.USER_ACTIVE;
+              const approveCandidateUser = {
+                approve,
+              };
+              return db.users.modifyStatus(approveCandidateUser, id)
+                .then(() => {
+                  res.status(200).json({
+                    success: 'true',
+                    message: 'successful! this account has been verified',
+                  });
+                });
+            }
+            else if (req.body.approve === 'false') {
+              approve = process.env.USER_DEFAULT;
+              const approveCandidateUser = {
+                approve,
+              };
+              return db.users.modifyStatus(approveCandidateUser, id)
+                .then(() => {
+                  res.status(200).json({
+                    success: 'true',
+                    message: 'user account has been successfully deactivated',
+                  });
+                });
+            }
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+        return res.status(500).json({
+          success: 'false',
+          message: 'so sorry, try again later',
+          err: err.message,
+        });
+      }));
+  }
 }
 
 export default UserController;

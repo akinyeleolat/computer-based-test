@@ -74,9 +74,9 @@ export default class User {
     return this.db.one(sql, values);
   }
   /**
-* Method for modifying user status.
-* @param {number} id - the id of a subject course.
-*/
+  * Method for modifying user status.
+  * @param {number} id - the id of a subject course.
+  */
 
   modifyStatus(values, id) {
     values.id = id;

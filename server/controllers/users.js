@@ -193,14 +193,14 @@ class UserController {
       }));
   }
     /**
-* @function approveUser
-* @memberof UserController
-*
-* @param {Object} req - this is a request object that contains whatever is requested for
-* @param {Object} res - this is a response object to be sent after attending to a request
-*
-* @static
-*/
+  * @function approveUser
+  * @memberof UserController
+  *
+  * @param {Object} req - this is a request object that contains whatever is requested for
+  * @param {Object} res - this is a response object to be sent after attending to a request
+  *
+  * @static
+  */
   static approveUser(req, res) {
     const { adminId } = req;
     const id = parseInt(req.params.id, 10);

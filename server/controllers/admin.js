@@ -104,53 +104,53 @@ class AdminController {
         });
       });
   }
-    /**
- * @function getAllAdminUsers
- * @memberof CourseController
- *
- * @param {Object} req - this is a request object that contains whatever is requested for
- * @param {Object} res - this is a response object to be sent after attending to a request
- *
- * @static
- */
- 
-   static getAllAdminUsers(req, res) {
-     const { adminId } = req;
-     const superAdminStatus = process.env.ADMIN_SUPER;
-     db.task('find admin user', db => db.admin.findById(adminId)
-       .then((adminFound) => {
-         if (adminFound.admin_status != superAdminStatus) {
-           return res.status(401).json({
-             success: 'false',
-             message: 'You are unauthorized to get lecturers information',
-           });
-         }
-         return db.admin.allData()
-           .then((user) => {
-             const lecturers = [...user];
-             return res.status(200).json({
-               success: 'true',
-               lecturers,
-             });
-           })
-       })
-       .catch((err) => {
-         res.status(404).json({
-           success: 'false',
-           message: 'nothing found in the database',
-           err: err.message,
-         });
-       }));
-   }
-     /**
-* @function getAdminUser
-* @memberof AdminController
+  /**
+* @function getAllAdminUsers
+* @memberof CourseController
 *
 * @param {Object} req - this is a request object that contains whatever is requested for
 * @param {Object} res - this is a response object to be sent after attending to a request
 *
 * @static
 */
+
+  static getAllAdminUsers(req, res) {
+    const { adminId } = req;
+    const superAdminStatus = process.env.ADMIN_SUPER;
+    db.task('find admin user', db => db.admin.findById(adminId)
+      .then((adminFound) => {
+        if (adminFound.admin_status != superAdminStatus) {
+          return res.status(401).json({
+            success: 'false',
+            message: 'You are unauthorized to get lecturers information',
+          });
+        }
+        return db.admin.allData()
+          .then((user) => {
+            const lecturers = [...user];
+            return res.status(200).json({
+              success: 'true',
+              lecturers,
+            });
+          })
+      })
+      .catch((err) => {
+        res.status(404).json({
+          success: 'false',
+          message: 'nothing found in the database',
+          err: err.message,
+        });
+      }));
+  }
+  /**
+  * @function getAdminUser
+  * @memberof AdminController
+  *
+  * @param {Object} req - this is a request object that contains whatever is requested for
+  * @param {Object} res - this is a response object to be sent after attending to a request
+  *
+  * @static
+  */
 
   static getAdmin(req, res) {
     const { adminId } = req;
@@ -184,6 +184,80 @@ class AdminController {
           success: 'false',
           message: err.message,
         })
+      }));
+  }
+  /**
+* @function approveAdmin
+* @memberof AdminController
+*
+* @param {Object} req - this is a request object that contains whatever is requested for
+* @param {Object} res - this is a response object to be sent after attending to a request
+*
+* @static
+*/
+  static approveAdmin(req, res) {
+    const { adminId } = req;
+    const id = parseInt(req.params.id, 10);
+    let { approve } = req.body;
+    approve = approve && approve.toString().replace(/\s+/g, '');
+    const superAdminStatus = process.env.ADMIN_SUPER;
+    db.task('approve an admin user', data => data.admin.findById(id)
+      .then((userFound) => {
+        if (!userFound) {
+          return res.status(400).json({
+            success: 'false',
+            message: 'This admin user does not exist',
+          });
+        }
+        if (userFound.admin_status == superAdminStatus) {
+          return res.status(400).json({
+            success: 'false',
+            message: 'This admin user does not exist',
+          });
+        }
+        return db.admin.findById(adminId)
+          .then((adminFound) => {
+            if (adminFound.admin_status != superAdminStatus) {
+              return res.status(401).json({
+                success: 'false',
+                message: 'You are unauthorized to verify an admin account',
+              });
+            }
+            if (req.body.approve === 'true') {
+              approve = process.env.ADMIN_ACTIVE;
+              const approveAdminUser = {
+                approve,
+              };
+              return db.admin.modifyStatus(approveAdminUser, id)
+                .then(() => {
+                  res.status(200).json({
+                    success: 'true',
+                    message: 'successful! this account has been verified',
+                  });
+                });
+            }
+            else if (req.body.approve === 'false') {
+              approve = process.env.ADMIN_DEFAULT;
+              const approveAdminUser = {
+                approve,
+              };
+              return db.admin.modifyStatus(approveAdminUser, id)
+                .then(() => {
+                  res.status(200).json({
+                    success: 'true',
+                    message: 'admin account has been successfully deactivated',
+                  });
+                });
+            }
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+        return res.status(500).json({
+          success: 'false',
+          message: 'so sorry, try again later',
+          err: err.message,
+        });
       }));
   }
 }

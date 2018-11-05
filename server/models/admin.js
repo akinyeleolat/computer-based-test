@@ -15,12 +15,12 @@ export default class Admin {
   */
 
 
- create(values) {
-  const salt = bcrypt.genSaltSync(10);
-  values.password = bcrypt.hashSync(values.password, salt);
-  const sql = 'INSERT INTO admin_users (firstname, lastname, email, telephone, admin_password, department, faculty, image_url, admin_status) VAlUES( ${firstname}, ${lastname}, ${email}, ${telephone}, ${password}, ${department}, ${faculty}, ${image}, ${adminStatus}) RETURNING id, firstname, lastname, email, telephone, department, faculty, image_url, admin_status';
-  return this.db.one(sql, values);
-}
+  create(values) {
+    const salt = bcrypt.genSaltSync(10);
+    values.password = bcrypt.hashSync(values.password, salt);
+    const sql = 'INSERT INTO admin_users (firstname, lastname, email, telephone, admin_password, department, faculty, image_url, admin_status) VAlUES( ${firstname}, ${lastname}, ${email}, ${telephone}, ${password}, ${department}, ${faculty}, ${image}, ${adminStatus}) RETURNING id, firstname, lastname, email, telephone, department, faculty, image_url, admin_status';
+    return this.db.one(sql, values);
+  }
 
   /**
   * Method for finding a user using the id.
@@ -49,12 +49,12 @@ export default class Admin {
     const sql = 'SELECT * FROM admin_users WHERE telephone = $1';
     return this.db.oneOrNone(sql, telephone);
   }
-    /** Method for getting all users in the database. */
+  /** Method for getting all users in the database. */
 
-    allData() {
-      const sql = 'SELECT * FROM admin_users';
-      return this.db.many(sql);
-    }
+  allData() {
+    const sql = 'SELECT * FROM admin_users';
+    return this.db.many(sql);
+  }
   /**
   * Method for removing a user from the database using the id.
   * @param {number} id - the id of a user.
@@ -72,6 +72,16 @@ export default class Admin {
   modify(values, id) {
     values.id = id;
     const sql = 'UPDATE admin_users SET firstname=${firstname}, lastname=${lastname}, email=${email}, telephone=${telephone} WHERE id=${id} RETURNING *';
+    return this.db.one(sql, values);
+  }
+  /**
+   * Method for modifying admin user status.
+   * @param {number} id - the id of a subject course.
+   */
+
+  modifyStatus(values, id) {
+    values.id = id;
+    const sql = 'UPDATE admin_users SET admin_status=${approve} WHERE id=${id} RETURNING *';
     return this.db.one(sql, values);
   }
 }

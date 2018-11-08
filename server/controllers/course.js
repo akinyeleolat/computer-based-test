@@ -8,7 +8,7 @@ import db from '../db';
 class CourseController {
   /**
 * @function postCourse
-* @memberof MenuController
+* @memberof CourseController
 *
 * @param {Object} req - this is a request object that contains whatever is requested for
 * @param {Object} res - this is a response object to be sent after attending to a request

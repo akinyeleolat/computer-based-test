@@ -2,8 +2,8 @@ import express from 'express';
 import UserController from '../controllers/users';
 import AdminController from '../controllers/admin';
 import CourseController from '../controllers/course';
+import QuestionController from '../controllers/question';
 import middlewares from '../middlewares';
-import validateUpdateCourse from '../middlewares/validateUpdateCourse';
 
 const router = express.Router();
 
@@ -24,5 +24,6 @@ router.patch('/admins/:id', middlewares.validateApproveUser, AdminController.app
 router.post('/courses', middlewares.validatePostCourse, CourseController.postCourse);
 router.patch('/courses/:id', middlewares.validateUpdateCourse, CourseController.updateCourse);
 router.delete('/courses/:id', CourseController.deleteCourse);
+router.post('/courses/:id/questions', middlewares.validatePostQuestion, QuestionController.postQuestion);
 
 export default router;

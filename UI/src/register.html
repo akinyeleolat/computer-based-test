@@ -73,6 +73,14 @@
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
+                    <i class="icon-phone"></i>
+                  </span>
+                </div>
+                <input class="form-control" type="tel" id="telephone" placeholder="Telephone Number">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
                     <i class="icon-lock"></i>
                   </span>
                 </div>
@@ -90,20 +98,21 @@
                 <label class="col-md-3 col-form-label">Account Type</label>
                 <div class="col-md-9 col-form-label">
                   <div class="form-check form-check-inline mr-1">
-                    <input class="form-check-input" id="AccountType" type="radio" value="admin" name="AccountType">
+                    <input class="form-check-input" id="admin" type="radio" value="admin" name="AccountType">
                     <label class="form-check-label" for="inline-radio1">Admin</label>
                   </div>
                   <div class="form-check form-check-inline mr-1">
-                    <input class="form-check-input" id="AccountType" type="radio" value="lecturer" name="AccountType">
+                    <input class="form-check-input" id="lecturer" type="radio" value="lecturer" name="AccountType">
                     <label class="form-check-label" for="inline-radio2">Lecturer</label>
                   </div>
                   <div class="form-check form-check-inline mr-1">
-                    <input class="form-check-input" id="AccountType" type="radio" value="candidate" name="AccountType">
+                    <input class="form-check-input" id="candidate" type="radio" value="candidate" name="AccountType">
                     <label class="form-check-label" for="inline-radio3">Candidate</label>
                   </div>
                 </div>
               </div>
-              <button class="btn btn-block btn-success" type="button">Create Account</button>
+              <input class="btn btn-block btn-success" type="submit" value="Create Account">
+              <!-- <button class="btn btn-block btn-success" type="button">Create Account</button> -->
             </div>
           </form>
             <div class="card-footer p-4">

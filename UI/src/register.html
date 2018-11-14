@@ -13,9 +13,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
-    <meta name="author" content="Łukasz Holeczek">
-    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <meta name="description" content="Subjective Computer Based Test">
+    <meta name="author" content="Computer based test">
+    <meta name="keyword" content="cbt, subjective, essay">
     <title>Computer Based Test</title>
     <!-- Icons-->
     <link href="node_modules/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
@@ -85,6 +85,22 @@
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
+                    <i class="icon-envelope"></i>
+                  </span>
+                </div>
+                <input class="form-control" type="tel" id="department" placeholder="Department">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="icon-envelope"></i>
+                  </span>
+                </div>
+                <input class="form-control" type="tel" id="faculty" placeholder="Faculty">
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
                     <i class="icon-lock"></i>
                   </span>
                 </div>
@@ -134,20 +150,21 @@
     <script src="node_modules/pace-progress/pace.min.js"></script>
     <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
-    <!-- script for fetchApi-->
-    <script src="./js/fetch/register.js"></script>
     <!-- cloudinary-->
     <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>  
 <script id="imageUrl" type="text/javascript">  
-  cloudinary.applyUploadWidget('#upload_widget_opener',{ 
-    cloudName: 'akinyeleolat', uploadPreset: 'preset1', 
-    cropping: true, folder: 'cbt' }, (error, result) => {
-      if (result && result.event === "success") {
-        // do something
-        const imageLink = result.info.url
-        return imageLink
-    }
-     });    
+  // cloudinary.applyUploadWidget('#upload_widget_opener',{ 
+  //   cloudName: 'akinyeleolat', uploadPreset: 'preset1', 
+  //   cropping: true, folder: 'cbt' }, (error, result) => {
+  //     if (result && result.event === "success") {
+  //       // do something
+  //       const imageLink = result.info.url
+  //       return imageLink
+  //   }
+  //    });    
 </script>
+    <!-- script for fetchApi-->
+    <script src="./js/fetch/register.js"></script>
+    
   </body>
 </html>

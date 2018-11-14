@@ -58,7 +58,7 @@
                     <i class="icon-user"></i>
                   </span>
                 </div>
-                <input class="form-control" type="text" name="FirstName" id="FirstName" placeholder="FirstName">
+                <input class="form-control" type="text" name="FirstName" id="FirstName" required placeholder="FirstName">
               </div>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -66,13 +66,13 @@
                     <i class="icon-user"></i>
                   </span>
                 </div>
-                <input class="form-control" type="text" name="LastName" id="LastName" placeholder="LastName">
+                <input class="form-control" type="text" name="LastName" id="LastName"  required placeholder="LastName">
               </div>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">@</span>
                 </div>
-                <input class="form-control" type="email" id="email" placeholder="Email">
+                <input class="form-control" type="email" id="email" required  placeholder="Email">
               </div>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -80,7 +80,7 @@
                     <i class="icon-phone"></i>
                   </span>
                 </div>
-                <input class="form-control" type="tel" id="telephone" placeholder="Telephone Number">
+                <input class="form-control" type="tel" id="telephone" required placeholder="Telephone Number">
               </div>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -88,7 +88,7 @@
                     <i class="icon-envelope"></i>
                   </span>
                 </div>
-                <input class="form-control" type="tel" id="department" placeholder="Department">
+                <input class="form-control" type="tel" id="department" required placeholder="Department">
               </div>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -96,7 +96,7 @@
                     <i class="icon-envelope"></i>
                   </span>
                 </div>
-                <input class="form-control" type="tel" id="faculty" placeholder="Faculty">
+                <input class="form-control" type="tel" id="faculty"  required placeholder="Faculty">
               </div>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -104,7 +104,7 @@
                     <i class="icon-lock"></i>
                   </span>
                 </div>
-                <input class="form-control" type="password" id="password" placeholder="Password">
+                <input class="form-control" type="password" id="password" required placeholder="Password">
               </div>
               <div class="input-group mb-4">
                 <div class="input-group-prepend">
@@ -112,7 +112,7 @@
                     <i class="icon-lock"></i>
                   </span>
                 </div>
-                <input class="form-control" type="password" id="password2" placeholder="Repeat password">
+                <input class="form-control" type="password" id="password2" required placeholder="Repeat password">
               </div>
               <div class="form-group row">
                 <label class="col-md-3 col-form-label">Account Type</label>
@@ -152,17 +152,7 @@
     <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
     <!-- cloudinary-->
     <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>  
-<script id="imageUrl" type="text/javascript">  
-  // cloudinary.applyUploadWidget('#upload_widget_opener',{ 
-  //   cloudName: 'akinyeleolat', uploadPreset: 'preset1', 
-  //   cropping: true, folder: 'cbt' }, (error, result) => {
-  //     if (result && result.event === "success") {
-  //       // do something
-  //       const imageLink = result.info.url
-  //       return imageLink
-  //   }
-  //    });    
-</script>
+<script id="imageUrl" type="text/javascript"></script>
     <!-- script for fetchApi-->
     <script src="./js/fetch/register.js"></script>
     

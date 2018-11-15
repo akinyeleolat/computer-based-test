@@ -1,8 +1,8 @@
 
  const LoginAdmin = (url,dataBody,redirectHome) => {
-    console.log('Url:',url)
-    console.log('Details:',dataBody)
-    console.log('Redirect:',redirectHome)
+    // console.log('Url:',url)
+    // console.log('Details:',dataBody)
+    // console.log('Redirect:',redirectHome)
     fetch(url, {
       method:'POST',
       headers:{
@@ -15,16 +15,16 @@
       .then((data) =>{
         if(data.success==='true'){
           window.location.replace(`${redirectHome}`)
-          console.log(data)
+        //   console.log(data)
           // document.getElementById('responseMessage').innerHTML = data.message+` Kindly await the admin to activate your account`
          }
          else{
            document.getElementById('responseMessage').innerHTML = data.message
-           console.log(data)
+        //    console.log(data)
          }
       })
       .catch((error) => {
-        console.error('Error:', error)
+        // console.error('Error:', error)
         document.getElementById('responseMessage').innerHTML = error
       });
   };

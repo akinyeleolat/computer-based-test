@@ -24,7 +24,7 @@ const createAccount = (url,dataBody,redirectHome) => {
   })
     .then((res) => res.json())
     .then((data) =>{
-      if(data.success){
+      if(data.success==='true'){
         //window.location.replace(`${redirectHome}`)
         console.log(data)
         document.getElementById('responseMessage').innerHTML = data.message+` Kindly await the admin to activate your account`

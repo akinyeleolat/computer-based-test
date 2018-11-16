@@ -7,6 +7,7 @@ import Admin from '../models/admin';
 import Course from '../models/course';
 import Question from '../models/question';
 import Answer from '../models/answer';
+import Result from '../models/result';
 
 /** @const sql - generating a full path */
 
@@ -24,6 +25,7 @@ const initOptions = {
     obj.admin =  new Admin(obj);
     obj.course = new Course(obj);
     obj.question = new Question(obj);
+    obj.results = new Result(obj);
     obj.answer = new Answer(obj);
   },
 };

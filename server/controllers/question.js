@@ -1,8 +1,12 @@
 import bcrypt from 'bcrypt-nodejs';
 import jwt from 'jsonwebtoken';
+import tcom from 'thesaurus-com';
+import natural from 'natural';
 import db from '../db';
 import User from '../models/users';
 
+
+const wordnet = new natural.WordNet();
 
 /** course controller class */
 
@@ -75,6 +79,7 @@ class QuestionController {
         });
       }));
   }
+
 }
 
 export default QuestionController;

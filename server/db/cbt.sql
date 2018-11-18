@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS admin_users (
 CREATE TABLE IF NOT EXISTS courses (
    id  SERIAL PRIMARY KEY,
    course_title  VARCHAR(255) NOT NULL,
+   course_description VARCHAR(255) NOT NULL,
    course_availability INT NOT NULL,
    created_at  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
    updated_at  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()

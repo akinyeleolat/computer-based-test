@@ -77,7 +77,7 @@ class AdminController {
     db.task('signin', data => data.admin.findByEmail(email)
       .then((user) => {
         if (!user) {
-          return res.status(404).json({
+          return res.status(401).json({
             success: 'false',
             message: 'You have entered an invalid email or password',
           });
@@ -117,6 +117,7 @@ class AdminController {
   static getAllAdminUsers(req, res) {
     const { adminId } = req;
     const superAdminStatus = process.env.ADMIN_SUPER;
+    const defaultAdmin = process.env.ADMIN_DEFAULT;
     db.task('find admin user', db => db.admin.findById(adminId)
       .then((adminFound) => {
         if (adminFound.admin_status != superAdminStatus) {
@@ -125,7 +126,7 @@ class AdminController {
             message: 'You are unauthorized to get lecturers information',
           });
         }
-        return db.admin.allData()
+        return db.admin.findByStatus(defaultAdmin)
           .then((user) => {
             const lecturers = [...user];
             return res.status(200).json({
@@ -137,7 +138,7 @@ class AdminController {
       .catch((err) => {
         res.status(404).json({
           success: 'false',
-          message: 'nothing found in the database',
+          message: 'no account needs approval for now',
           err: err.message,
         });
       }));

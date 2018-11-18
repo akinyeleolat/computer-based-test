@@ -31,6 +31,15 @@ export default class Admin {
     const sql = 'SELECT * FROM admin_users WHERE id = $1';
     return this.db.oneOrNone(sql, id);
   }
+    /**
+* Method for finding a user using the status.
+* @param {number} status - the status of a user.
+*/
+
+findByStatus(status) {
+  const sql = 'SELECT firstname, lastname, email, telephone, department, faculty, image_url, created_at FROM admin_users WHERE admin_status = $1';
+  return this.db.many(sql, status);
+}
   /**
   * Method for finding a user using the email address.
   * @param {String} email - the email of a user.

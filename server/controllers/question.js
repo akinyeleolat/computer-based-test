@@ -79,6 +79,60 @@ class QuestionController {
         });
       }));
   }
+  /**
+* @function getAllQuestions
+* @memberof QuestionController
+*
+* @param {Object} req - this is a request object that contains whatever is requested for
+* @param {Object} res - this is a response object to be sent after attending to a request
+*
+* @static
+*/
+
+  static getAllQuestions(req, res) {
+    const { userId } = req;
+    const courseId = parseInt(req.params.id, 10);
+    const activeUser = process.env.USER_ACTIVE;
+    const testReady = process.env.TEST_AVAILABLE;
+    if (isNaN(courseId)) {
+      return res.status(400).json({
+        success: 'false',
+        message: 'param should be a number not an alphabet',
+      });
+    }
+    return db.task('fetch user', data => data.users.findById(userId)
+      .then((user) => {
+        if (user.user_status != activeUser) {
+          return res.status(401).json({
+            success: 'false',
+            message: 'This account needs to be approved to take a test',
+          });
+        }
+        return db.task('check course', data => data.course.findById(courseId)
+          .then((courseFound) => {
+            if (!courseFound || courseFound.course_availability != testReady) {
+              return res.status(403).json({
+                success: 'false',
+                message: 'This course is not open yet for test',
+              });
+            }
+            return db.question.findById(courseId)
+              .then((questions) => {
+                return res.status(200).json({
+                  success: 'true',
+                  questions,
+                });
+              })
+          }))
+      })
+      .catch((err) => {
+        res.status(404).json({
+          success: 'false',
+          message: 'nothing found in the database',
+          err: err.message,
+        });
+      }))
+  }
 
 }
 

@@ -27,11 +27,11 @@ export default class Question {
   }
   /**
 * Method for finding a question using the id.
-* @param {number} id - the id of a question.
+* @param {number} id - the id of course to be found.
 */
 
   findById(id) {
-    const sql = 'SELECT * FROM test_questions LEFT JOIN test_answers ON test_questions.id = test_answers.question_id WHERE test_questions.id = $1';
+    const sql = 'SELECT * FROM test_questions LEFT JOIN test_answers ON test_questions.id = test_answers.question_id WHERE test_questions.course_id = $1';
     return this.db.many(sql, id);
   }
   /**

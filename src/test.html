@@ -62,10 +62,9 @@
         <li class="nav-item px-3">
             <a class="nav-link" href="./courses.html">Courses</a>
           </li>
-        </li>
-        <li class="nav-item px-3">
-            <a class="nav-link" href="./questions.html">Questions</a>
-          </li>
+          <li class="nav-item px-3">
+                <a class="nav-link" href="./questions.html">Questions</a>
+              </li>
         <li class="nav-item px-3">
           <a class="nav-link" href="#">Settings</a>
         </li>
@@ -331,16 +330,6 @@
                 </li>
               </ul>
             </li>
-            <!-- <li class="nav-item mt-auto">
-              <a class="nav-link nav-link-success" href="https://coreui.io" target="_top">
-                <i class="nav-icon icon-cloud-download"></i> Download CoreUI</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-danger" href="https://coreui.io/pro/" target="_top">
-                <i class="nav-icon icon-layers"></i> Try CoreUI
-                <strong>PRO</strong>
-              </a>
-            </li> -->
           </ul>
         </nav>
         <button class="sidebar-minimizer brand-minimizer" type="button"></button>
@@ -382,7 +371,7 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                       </div>
                     </div>
-                    <div class="text-value">20</div>
+                    <div class="text-value">9</div>
                     <div>Lecturers/Admin</div>
                   </div>
                   <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
@@ -397,7 +386,7 @@
                     <button class="btn btn-transparent p-0 float-right" type="button">
                       <i class="icon-location-pin"></i>
                     </button>
-                    <div class="text-value">10</div>
+                    <div class="text-value">20</div>
                     <div>Candidate</div>
                   </div>
                   <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
@@ -441,7 +430,7 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                       </div>
                     </div>
-                    <div class="text-value">9.823</div>
+                    <div class="text-value">20</div>
                     <div>Test</div>
                   </div>
                   <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
@@ -458,418 +447,283 @@
               
               
             <div class="row">
-              <div class="col-md-12">
-                <div class="card">
-                  <div class="card-header">Pending Approval List</div>
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="row">
-                          <div class="col-sm-6">
-                          </div>
-                          <!-- /.col-->
-                          <div class="col-sm-6">
-                          </div>
-                          <!-- /.col-->
-                        </div>
-                        <!-- /.row-->
-
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <i class="fa fa-align-justify"></i> Question List</div>
+                    <div class="card-body">
+                      <!-- Button trigger modal-->
+                      <div class="row">
+                          <div class="form-group col-sm-4">
+                        <select class="form-control" id="ccmonth">
+                          <option>Intro.to Programming</option>
+                          <option>Algebra for Programmers</option>
+                          <option>Data Logic</option>
+                          <option>Web and Internet Technologies 101</option>
+                        </select>
                       </div>
-                      <!-- /.col-->
-                      <div class="col-sm-6">
-                        <div class="row">
-                          <div class="col-sm-6">
-                            
-                          </div>
-                          <!-- /.col-->
-                          <div class="col-sm-6">
-                            
-                          </div>
-                          <!-- /.col-->
+                      <div class="form-group col-sm-4">
+                          <button class="btn btn-primary" type="button">Load Questions</button>
                         </div>
-                        
                       </div>
-                      <!-- /.col-->
+                      <hr>
+      <table class="table table-responsive-sm table-hover table-outline mb-0">                                      <thead class="thead-light">
+            <tr>
+                <th class="text-center">
+                <i class="icon-people"></i>
+                </th>
+                <th>Question</th>
+                <th class="text-center">Answer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-center"> 1</td>
+                <td>
+                    <div>HTML is _____________ langugae </div>
+                    <div class="small text-muted">
+                    <span>New</span> | Added: Jan 1, 2015</div>
+                </td>
+                <td>
+                    <div class="form-group row">
+                    <div class="col-md-9 col-form-label">
+                    <div class="form-check form-check-inline mr-1">
+                    <input class="form-check-input" id="inline-radio1" type="radio" value="option1" name="inline-radios">
+                    <label class="form-check-label" for="inline-radio1">Programming</label>
                     </div>
-                    <!-- /.row-->
-                    <br>
-                    <table class="table table-responsive-sm table-hover table-outline mb-0">
-                            <thead class="thead-light">
-                              <tr>
-                                <th class="text-center">
-                                  <i class="icon-people"></i>
-                                </th>
-                                <th>Lecturers/Admin Name</th>
-                                <th class="text-center">Email</th>
-                                <th class="text-center">Telephone</th>
-                                <th>Department</th>
-                                <th class="text-center">Faculty</th>
-                                <th>Status</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td class="text-center">
-                                  <div class="avatar">
-                                    <img class="img-avatar" src="img/avatars/1.jpg" alt="admin@bootstrapmaster.com">
-                                    <span class="avatar-status badge-success"></span>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>Yiorgos Avraamu</div>
-                                  <div class="small text-muted">
-                                    <span>New</span> | Registered: Jan 1, 2015</div>
-                                </td>
-                                <td class="text-center">
-                                  email@email.com
-                                </td>
-                                <td>
-                                  +234703333333
-                                </td>
-                                <td class="text-center">
-                                  Computer Science
-                                </td>
-                                <td class="text-center">
-                                      Science
-                                    </td>
-                                <td>
-                                  <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="text-center">
-                                  <div class="avatar">
-                                    <img class="img-avatar" src="img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
-                                    <span class="avatar-status badge-danger"></span>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>Avram Tarasios</div>
-                                  <div class="small text-muted">
-                                    <span>Recurring</span> | Registered: Jan 1, 2015</div>
-                                </td>
-                                <td class="text-center">
-                                      email@email.com
-                                    </td>
-                                    <td>
-                                      +234703333333
-                                    </td>
-                                    <td class="text-center">
-                                      Computer Science
-                                    </td>
-                                    <td class="text-center">
-                                          Science
-                                        </td>
-                                    <td>
-                                      <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                    </td>
-                              </tr>
-                              <tr>
-                                <td class="text-center">
-                                  <div class="avatar">
-                                    <img class="img-avatar" src="img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
-                                    <span class="avatar-status badge-warning"></span>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>Quintin Ed</div>
-                                  <div class="small text-muted">
-                                    <span>New</span> | Registered: Jan 1, 2015</div>
-                                </td>
-                                <td class="text-center">
-                                      email@email.com
-                                    </td>
-                                    <td>
-                                      +234703333333
-                                    </td>
-                                    <td class="text-center">
-                                      Computer Science
-                                    </td>
-                                    <td class="text-center">
-                                          Science
-                                        </td>
-                                    <td>
-                                      <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                    </td>
-                              </tr>
-                              <tr>
-                                <td class="text-center">
-                                  <div class="avatar">
-                                    <img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
-                                    <span class="avatar-status badge-secondary"></span>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>Enéas Kwadwo</div>
-                                  <div class="small text-muted">
-                                    <span>New</span> | Registered: Jan 1, 2015</div>
-                                </td>
-                                <td class="text-center">
-                                      email@email.com
-                                    </td>
-                                    <td>
-                                      +234703333333
-                                    </td>
-                                    <td class="text-center">
-                                      Computer Science
-                                    </td>
-                                    <td class="text-center">
-                                          Science
-                                        </td>
-                                    <td>
-                                      <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                    </td>
-                              </tr>
-                              <tr>
-                                <td class="text-center">
-                                  <div class="avatar">
-                                    <img class="img-avatar" src="img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
-                                    <span class="avatar-status badge-success"></span>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>Agapetus Tadeáš</div>
-                                  <div class="small text-muted">
-                                    <span>New</span> | Registered: Jan 1, 2015</div>
-                                </td>
-                                <td class="text-center">
-                                      email@email.com
-                                    </td>
-                                    <td>
-                                      +234703333333
-                                    </td>
-                                    <td class="text-center">
-                                      Computer Science
-                                    </td>
-                                    <td class="text-center">
-                                          Science
-                                        </td>
-                                    <td>
-                                      <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                    </td>
-                              </tr>
-                              <tr>
-                                <td class="text-center">
-                                  <div class="avatar">
-                                    <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
-                                    <span class="avatar-status badge-danger"></span>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>Friderik Dávid</div>
-                                  <div class="small text-muted">
-                                    <span>New</span> | Registered: Jan 1, 2015</div>
-                                </td>
-                                <td class="text-center">
-                                      email@email.com
-                                    </td>
-                                    <td>
-                                      +234703333333
-                                    </td>
-                                    <td class="text-center">
-                                      Computer Science
-                                    </td>
-                                    <td class="text-center">
-                                          Science
-                                        </td>
-                                    <td>
-                                      <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                    </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                    <br>
-                    <table class="table table-responsive-sm table-hover table-outline mb-0">
-                      <thead class="thead-light">
-                        <tr>
-                          <th class="text-center">
-                            <i class="icon-people"></i>
-                          </th>
-                          <th>Candidate's Name</th>
-                          <th class="text-center">Email</th>
-                          <th class="text-center">Telephone</th>
-                          <th>Department</th>
-                          <th class="text-center">Faculty</th>
-                          <th>Status</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="text-center">
-                            <div class="avatar">
-                              <img class="img-avatar" src="img/avatars/1.jpg" alt="admin@bootstrapmaster.com">
-                              <span class="avatar-status badge-success"></span>
-                            </div>
-                          </td>
-                          <td>
-                            <div>Yiorgos Avraamu</div>
+                    <div class="form-check form-check-inline mr-1">
+                    <input class="form-check-input" id="inline-radio2" type="radio" value="option2" name="inline-radios">
+                    <label class="form-check-label" for="inline-radio2">Scripting</label>
+                    </div>
+                    <div class="form-check form-check-inline mr-1">
+                    <input class="form-check-input" id="inline-radio3" type="radio" value="option3" name="inline-radios">
+                    <label class="form-check-label" for="inline-radio3">Markup</label>
+                    </div>
+                    <div class="form-check form-check-inline mr-1">
+                    <input class="form-check-input" id="inline-radio3" type="radio" value="option3" name="inline-radios">
+                    <label class="form-check-label" for="inline-radio3">Markdown</label>
+                    </div>
+                    </div>
+                    </div>
+                    </td>
+            </tr>
+            <tr>
+                    <td class="text-center"> 2 </td>
+                    <td>
+                        <div>HTML is _____________ langugae </div>
+                        <div class="small text-muted">
+                        <span>New</span> | Added: Jan 1, 2015</div>
+                    </td>
+                    <td class="text-center">
+                       <div class="form-group row">
+                       <div class="col-sm-12">
+                       <input class="form-control" type="text" placeholder="-Enter your answer-">
+                       </div>
+                    </td>
+            </tr>
+            <tr>
+                    <td class="text-center"> 3</td>
+                    <td>
+                        <div>HTML is _____________ langugae </div>
+                        <div class="small text-muted">
+                        <span>New</span> | Added: Jan 1, 2015</div>
+                    </td>
+                    <td>
+                        <div class="form-group row">
+                        <div class="col-md-9 col-form-label">
+                        <div class="form-check form-check-inline mr-1">
+                        <input class="form-check-input" id="inline-radio1" type="radio" value="option1" name="inline-radios">
+                        <label class="form-check-label" for="inline-radio1">Programming</label>
+                        </div>
+                        <div class="form-check form-check-inline mr-1">
+                        <input class="form-check-input" id="inline-radio2" type="radio" value="option2" name="inline-radios">
+                        <label class="form-check-label" for="inline-radio2">Scripting</label>
+                        </div>
+                        <div class="form-check form-check-inline mr-1">
+                        <input class="form-check-input" id="inline-radio3" type="radio" value="option3" name="inline-radios">
+                        <label class="form-check-label" for="inline-radio3">Markup</label>
+                        </div>
+                        <div class="form-check form-check-inline mr-1">
+                        <input class="form-check-input" id="inline-radio3" type="radio" value="option3" name="inline-radios">
+                        <label class="form-check-label" for="inline-radio3">Markdown</label>
+                        </div>
+                        </div>
+                        </div>
+                        </td>
+                </tr>
+                <tr>
+                        <td class="text-center">  4</td>
+                        <td>
+                            <div>HTML is _____________ langugae </div>
                             <div class="small text-muted">
-                              <span>New</span> | Registered: Jan 1, 2015</div>
-                          </td>
-                          <td class="text-center">
-                            email@email.com
-                          </td>
-                          <td>
-                            +234703333333
-                          </td>
-                          <td class="text-center">
-                            Computer Science
-                          </td>
-                          <td class="text-center">
-                                Science
-                              </td>
-                          <td>
-                            <button class="btn btn-block btn-primary" type="button">Approve</button>
-                          </td>
+                            <span>New</span> | Added: Jan 1, 2015</div>
+                        </td>
+                        <td class="text-center">
+                           <div class="form-group row">
+                           <div class="col-sm-12">
+                           <input class="form-control" type="text" placeholder="-Enter your answer-">
+                           </div>
+                        </td>
+                </tr>
+                <tr>
+                        <td class="text-center"> 5 </td>
+                        <td>
+                            <div>HTML is _____________ langugae </div>
+                            <div class="small text-muted">
+                            <span>New</span> | Added: Jan 1, 2015</div>
+                        </td>
+                        <td>
+                            <div class="form-group row">
+                            <div class="col-md-9 col-form-label">
+                            <div class="form-check form-check-inline mr-1">
+                            <input class="form-check-input" id="inline-radio1" type="radio" value="option1" name="inline-radios">
+                            <label class="form-check-label" for="inline-radio1">Programming</label>
+                            </div>
+                            <div class="form-check form-check-inline mr-1">
+                            <input class="form-check-input" id="inline-radio2" type="radio" value="option2" name="inline-radios">
+                            <label class="form-check-label" for="inline-radio2">Scripting</label>
+                            </div>
+                            <div class="form-check form-check-inline mr-1">
+                            <input class="form-check-input" id="inline-radio3" type="radio" value="option3" name="inline-radios">
+                            <label class="form-check-label" for="inline-radio3">Markup</label>
+                            </div>
+                            <div class="form-check form-check-inline mr-1">
+                            <input class="form-check-input" id="inline-radio3" type="radio" value="option3" name="inline-radios">
+                            <label class="form-check-label" for="inline-radio3">Markdown</label>
+                            </div>
+                            </div>
+                            </div>
+                            </td>
+                    </tr>
+                    <tr>
+                            <td class="text-center"> 6 </td>
+                            <td>
+                                <div>HTML is _____________ langugae </div>
+                                <div class="small text-muted">
+                                <span>New</span> | Added: Jan 1, 2015</div>
+                            </td>
+                            <td class="text-center">
+                               <div class="form-group row">
+                               <div class="col-sm-12">
+                               <input class="form-control" type="text" placeholder="-Enter your answer-">
+                               </div>
+                            </td>
+                    </tr>
+                    <tr>
+                            <td class="text-center"> 7</td>
+                            <td>
+                                <div>HTML is _____________ langugae </div>
+                                <div class="small text-muted">
+                                <span>New</span> | Added: Jan 1, 2015</div>
+                            </td>
+                            <td>
+                                <div class="form-group row">
+                                <div class="col-md-9 col-form-label">
+                                <div class="form-check form-check-inline mr-1">
+                                <input class="form-check-input" id="inline-radio1" type="radio" value="option1" name="inline-radios">
+                                <label class="form-check-label" for="inline-radio1">Programming</label>
+                                </div>
+                                <div class="form-check form-check-inline mr-1">
+                                <input class="form-check-input" id="inline-radio2" type="radio" value="option2" name="inline-radios">
+                                <label class="form-check-label" for="inline-radio2">Scripting</label>
+                                </div>
+                                <div class="form-check form-check-inline mr-1">
+                                <input class="form-check-input" id="inline-radio3" type="radio" value="option3" name="inline-radios">
+                                <label class="form-check-label" for="inline-radio3">Markup</label>
+                                </div>
+                                <div class="form-check form-check-inline mr-1">
+                                <input class="form-check-input" id="inline-radio3" type="radio" value="option3" name="inline-radios">
+                                <label class="form-check-label" for="inline-radio3">Markdown</label>
+                                </div>
+                                </div>
+                                </div>
+                                </td>
                         </tr>
                         <tr>
-                          <td class="text-center">
-                            <div class="avatar">
-                              <img class="img-avatar" src="img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
-                              <span class="avatar-status badge-danger"></span>
-                            </div>
-                          </td>
-                          <td>
-                            <div>Avram Tarasios</div>
-                            <div class="small text-muted">
-                              <span>Recurring</span> | Registered: Jan 1, 2015</div>
-                          </td>
-                          <td class="text-center">
-                                email@email.com
-                              </td>
-                              <td>
-                                +234703333333
-                              </td>
-                              <td class="text-center">
-                                Computer Science
-                              </td>
-                              <td class="text-center">
-                                    Science
-                                  </td>
-                              <td>
-                                <button class="btn btn-block btn-primary" type="button">Approve</button>
-                              </td>
+                                <td class="text-center"> 8 </td>
+                                <td>
+                                    <div>HTML is _____________ langugae </div>
+                                    <div class="small text-muted">
+                                    <span>New</span> | Added: Jan 1, 2015</div>
+                                </td>
+                                <td class="text-center">
+                                   <div class="form-group row">
+                                   <div class="col-sm-12">
+                                   <input class="form-control" type="text" placeholder="-Enter your answer-">
+                                   </div>
+                                </td>
                         </tr>
                         <tr>
-                          <td class="text-center">
-                            <div class="avatar">
-                              <img class="img-avatar" src="img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
-                              <span class="avatar-status badge-warning"></span>
+                                <td class="text-center"> 9</td>
+                                <td>
+                                    <div>HTML is _____________ langugae </div>
+                                    <div class="small text-muted">
+                                    <span>New</span> | Added: Jan 1, 2015</div>
+                                </td>
+                                <td>
+                                    <div class="form-group row">
+                                    <div class="col-md-9 col-form-label">
+                                    <div class="form-check form-check-inline mr-1">
+                                    <input class="form-check-input" id="inline-radio1" type="radio" value="option1" name="inline-radios">
+                                    <label class="form-check-label" for="inline-radio1">Programming</label>
+                                    </div>
+                                    <div class="form-check form-check-inline mr-1">
+                                    <input class="form-check-input" id="inline-radio2" type="radio" value="option2" name="inline-radios">
+                                    <label class="form-check-label" for="inline-radio2">Scripting</label>
+                                    </div>
+                                    <div class="form-check form-check-inline mr-1">
+                                    <input class="form-check-input" id="inline-radio3" type="radio" value="option3" name="inline-radios">
+                                    <label class="form-check-label" for="inline-radio3">Markup</label>
+                                    </div>
+                                    <div class="form-check form-check-inline mr-1">
+                                    <input class="form-check-input" id="inline-radio3" type="radio" value="option3" name="inline-radios">
+                                    <label class="form-check-label" for="inline-radio3">Markdown</label>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    </td>
+                            </tr>
+                            <tr>
+                                    <td class="text-center"> 10 </td>
+                                    <td>
+                                        <div>HTML is _____________ langugae </div>
+                                        <div class="small text-muted">
+                                        <span>New</span> | Added: Jan 1, 2015</div>
+                                    </td>
+                                    <td class="text-center">
+                                       <div class="form-group row">
+                                       <div class="col-sm-12">
+                                       <input class="form-control" type="text" placeholder="-Enter your answer-">
+                                       </div>
+                                    </td>
+                            </tr>
+                            <tr>
+                            <td colspan="2">
+                            </td>
+                            <td>
+                            <div class="row">
+                                <div class="form-group col-sm-4">
+                                <button class="btn btn-block btn-primary" type="button">Submit</button>
+                                </div> 
+                                <div class="form-group col-sm-4"> 
+                                <button class="btn btn-block btn-danger" type="button">Save for Later</button>
+                                </div>
                             </div>
-                          </td>
-                          <td>
-                            <div>Quintin Ed</div>
-                            <div class="small text-muted">
-                              <span>New</span> | Registered: Jan 1, 2015</div>
-                          </td>
-                          <td class="text-center">
-                                email@email.com
-                              </td>
-                              <td>
-                                +234703333333
-                              </td>
-                              <td class="text-center">
-                                Computer Science
-                              </td>
-                              <td class="text-center">
-                                    Science
-                                  </td>
-                              <td>
-                                <button class="btn btn-block btn-primary" type="button">Approve</button>
-                              </td>
+                            </td>
                         </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="avatar">
-                              <img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
-                              <span class="avatar-status badge-secondary"></span>
-                            </div>
-                          </td>
-                          <td>
-                            <div>Enéas Kwadwo</div>
-                            <div class="small text-muted">
-                              <span>New</span> | Registered: Jan 1, 2015</div>
-                          </td>
-                          <td class="text-center">
-                                email@email.com
-                              </td>
-                              <td>
-                                +234703333333
-                              </td>
-                              <td class="text-center">
-                                Computer Science
-                              </td>
-                              <td class="text-center">
-                                    Science
-                                  </td>
-                              <td>
-                                <button class="btn btn-block btn-primary" type="button">Approve</button>
-                              </td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="avatar">
-                              <img class="img-avatar" src="img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
-                              <span class="avatar-status badge-success"></span>
-                            </div>
-                          </td>
-                          <td>
-                            <div>Agapetus Tadeáš</div>
-                            <div class="small text-muted">
-                              <span>New</span> | Registered: Jan 1, 2015</div>
-                          </td>
-                          <td class="text-center">
-                                email@email.com
-                              </td>
-                              <td>
-                                +234703333333
-                              </td>
-                              <td class="text-center">
-                                Computer Science
-                              </td>
-                              <td class="text-center">
-                                    Science
-                                  </td>
-                              <td>
-                                <button class="btn btn-block btn-primary" type="button">Approve</button>
-                              </td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="avatar">
-                              <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
-                              <span class="avatar-status badge-danger"></span>
-                            </div>
-                          </td>
-                          <td>
-                            <div>Friderik Dávid</div>
-                            <div class="small text-muted">
-                              <span>New</span> | Registered: Jan 1, 2015</div>
-                          </td>
-                          <td class="text-center">
-                                email@email.com
-                              </td>
-                              <td>
-                                +234703333333
-                              </td>
-                              <td class="text-center">
-                                Computer Science
-                              </td>
-                              <td class="text-center">
-                                    Science
-                                  </td>
-                              <td>
-                                <button class="btn btn-block btn-primary" type="button">Approve</button>
-                              </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    
+        </tbody>
+        </table>
+                      </div>
+                      </div>
+                      </div>
+                      </div>             
+                    </div>
                   </div>
                 </div>
+                <!-- /.col-->
               </div>
-              <!-- /.col-->
-            </div>
+              
+      
             <!-- /.row-->
           </div>
         </div>

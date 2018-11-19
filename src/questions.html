@@ -62,10 +62,9 @@
         <li class="nav-item px-3">
             <a class="nav-link" href="./courses.html">Courses</a>
           </li>
-        </li>
-        <li class="nav-item px-3">
-            <a class="nav-link" href="./questions.html">Questions</a>
-          </li>
+          <li class="nav-item px-3">
+                <a class="nav-link" href="./questions.html">Questions</a>
+              </li>
         <li class="nav-item px-3">
           <a class="nav-link" href="#">Settings</a>
         </li>
@@ -331,16 +330,6 @@
                 </li>
               </ul>
             </li>
-            <!-- <li class="nav-item mt-auto">
-              <a class="nav-link nav-link-success" href="https://coreui.io" target="_top">
-                <i class="nav-icon icon-cloud-download"></i> Download CoreUI</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link-danger" href="https://coreui.io/pro/" target="_top">
-                <i class="nav-icon icon-layers"></i> Try CoreUI
-                <strong>PRO</strong>
-              </a>
-            </li> -->
           </ul>
         </nav>
         <button class="sidebar-minimizer brand-minimizer" type="button"></button>
@@ -382,7 +371,7 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                       </div>
                     </div>
-                    <div class="text-value">20</div>
+                    <div class="text-value">9</div>
                     <div>Lecturers/Admin</div>
                   </div>
                   <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
@@ -397,7 +386,7 @@
                     <button class="btn btn-transparent p-0 float-right" type="button">
                       <i class="icon-location-pin"></i>
                     </button>
-                    <div class="text-value">10</div>
+                    <div class="text-value">20</div>
                     <div>Candidate</div>
                   </div>
                   <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
@@ -441,7 +430,7 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                       </div>
                     </div>
-                    <div class="text-value">9.823</div>
+                    <div class="text-value">20</div>
                     <div>Test</div>
                   </div>
                   <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
@@ -458,418 +447,409 @@
               
               
             <div class="row">
-              <div class="col-md-12">
-                <div class="card">
-                  <div class="card-header">Pending Approval List</div>
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="row">
-                          <div class="col-sm-6">
-                          </div>
-                          <!-- /.col-->
-                          <div class="col-sm-6">
-                          </div>
-                          <!-- /.col-->
-                        </div>
-                        <!-- /.row-->
-
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <i class="fa fa-align-justify"></i> Question List</div>
+                    <div class="card-body">
+                      <!-- Button trigger modal-->
+                      <div class="row">
+                          <div class="form-group col-sm-4">
+                        <select class="form-control" id="ccmonth">
+                          <option>Intro.to Programming</option>
+                          <option>Algebra for Programmers</option>
+                          <option>Data Logic</option>
+                          <option>Web and Internet Technologies 101</option>
+                        </select>
                       </div>
-                      <!-- /.col-->
-                      <div class="col-sm-6">
-                        <div class="row">
-                          <div class="col-sm-6">
-                            
-                          </div>
-                          <!-- /.col-->
-                          <div class="col-sm-6">
-                            
-                          </div>
-                          <!-- /.col-->
+                      <div class="form-group col-sm-4">
+                          <button class="btn btn-info" type="button">View Questions/ Refresh</button>
+                          <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#primaryModal">Add Questions</button>
                         </div>
-                        
                       </div>
-                      <!-- /.col-->
+                      <hr>
+                              <table class="table table-responsive-sm table-hover table-outline mb-0">
+                                      <thead class="thead-light">
+                                        <tr>
+                                          <th class="text-center">
+                                            <i class="icon-people"></i>
+                                          </th>
+                                          <th>Question</th>
+                                          <th class="text-center">Option 1</th>
+                                          <th class="text-center">Option 2</th>
+                                          <th class="text-center">Option 3</th>
+                                          <th class="text-center">Option 4</th>
+                                          <th class="text-center">Correct Answer</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                              1
+                                            </td>
+                                            <td>
+                                              <div>HTML is _____________ langugae </div>
+                                              <div class="small text-muted">
+                                                <span>New</span> | Added: Jan 1, 2015</div>
+                                            </td>
+                                            <td class="text-center">
+                                              programming 
+                                            </td>
+                                            <td class="text-center">
+                                              scripting
+                                            </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                            <td class="text-center">
+                                                  markdown
+                                                </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="text-center">
+                                              2
+                                            </td>
+                                            <td>
+                                              <div>HTML is _____________ langugae </div>
+                                              <div class="small text-muted">
+                                                <span>New</span> | Added: Jan 1, 2015</div>
+                                            </td>
+                                            <td class="text-center">
+                                              programming 
+                                            </td>
+                                            <td class="text-center">
+                                              scripting
+                                            </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                            <td class="text-center">
+                                                  markdown
+                                                </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="text-center">
+                                              3
+                                            </td>
+                                            <td>
+                                              <div>HTML is _____________ langugae </div>
+                                              <div class="small text-muted">
+                                                <span>New</span> | Added: Jan 1, 2015</div>
+                                            </td>
+                                            <td class="text-center">
+                                              programming 
+                                            </td>
+                                            <td class="text-center">
+                                              scripting
+                                            </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                            <td class="text-center">
+                                                  markdown
+                                                </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="text-center">
+                                              4
+                                            </td>
+                                            <td>
+                                              <div>HTML is _____________ langugae </div>
+                                              <div class="small text-muted">
+                                                <span>New</span> | Added: Jan 1, 2015</div>
+                                            </td>
+                                            <td class="text-center">
+                                              programming 
+                                            </td>
+                                            <td class="text-center">
+                                              scripting
+                                            </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                            <td class="text-center">
+                                                  markdown
+                                                </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="text-center">
+                                              5
+                                            </td>
+                                            <td>
+                                              <div>HTML is _____________ langugae </div>
+                                              <div class="small text-muted">
+                                                <span>New</span> | Added: Jan 1, 2015</div>
+                                            </td>
+                                            <td class="text-center">
+                                              programming 
+                                            </td>
+                                            <td class="text-center">
+                                              scripting
+                                            </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                            <td class="text-center">
+                                                  markdown
+                                                </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="text-center">
+                                              6
+                                            </td>
+                                            <td>
+                                              <div>HTML is _____________ langugae </div>
+                                              <div class="small text-muted">
+                                                <span>New</span> | Added: Jan 1, 2015</div>
+                                            </td>
+                                            <td class="text-center">
+                                              programming 
+                                            </td>
+                                            <td class="text-center">
+                                              scripting
+                                            </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                            <td class="text-center">
+                                                  markdown
+                                                </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="text-center">
+                                              7
+                                            </td>
+                                            <td>
+                                              <div>HTML is _____________ langugae </div>
+                                              <div class="small text-muted">
+                                                <span>New</span> | Added: Jan 1, 2015</div>
+                                            </td>
+                                            <td class="text-center">
+                                              programming 
+                                            </td>
+                                            <td class="text-center">
+                                              scripting
+                                            </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                            <td class="text-center">
+                                                  markdown
+                                                </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="text-center">
+                                              8
+                                            </td>
+                                            <td>
+                                              <div>HTML is _____________ langugae </div>
+                                              <div class="small text-muted">
+                                                <span>New</span> | Added: Jan 1, 2015</div>
+                                            </td>
+                                            <td class="text-center">
+                                              programming 
+                                            </td>
+                                            <td class="text-center">
+                                              scripting
+                                            </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                            <td class="text-center">
+                                                  markdown
+                                                </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="text-center">
+                                              9
+                                            </td>
+                                            <td>
+                                              <div>HTML is _____________ langugae </div>
+                                              <div class="small text-muted">
+                                                <span>New</span> | Added: Jan 1, 2015</div>
+                                            </td>
+                                            <td class="text-center">
+                                              programming 
+                                            </td>
+                                            <td class="text-center">
+                                              scripting
+                                            </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                            <td class="text-center">
+                                                  markdown
+                                                </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                          </tr>
+                                          <tr>
+                                            <td class="text-center">
+                                              10
+                                            </td>
+                                            <td>
+                                              <div>HTML is _____________ langugae </div>
+                                              <div class="small text-muted">
+                                                <span>New</span> | Added: Jan 1, 2015</div>
+                                            </td>
+                                            <td class="text-center">
+                                              programming 
+                                            </td>
+                                            <td class="text-center">
+                                              scripting
+                                            </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                            <td class="text-center">
+                                                  markdown
+                                                </td>
+                                            <td class="text-center">
+                                              markup
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                    </table>
+                      </div>
+                      </div>
+                      </div>
+                      </div>             
                     </div>
-                    <!-- /.row-->
-                    <br>
-                    <table class="table table-responsive-sm table-hover table-outline mb-0">
-                            <thead class="thead-light">
-                              <tr>
-                                <th class="text-center">
-                                  <i class="icon-people"></i>
-                                </th>
-                                <th>Lecturers/Admin Name</th>
-                                <th class="text-center">Email</th>
-                                <th class="text-center">Telephone</th>
-                                <th>Department</th>
-                                <th class="text-center">Faculty</th>
-                                <th>Status</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td class="text-center">
-                                  <div class="avatar">
-                                    <img class="img-avatar" src="img/avatars/1.jpg" alt="admin@bootstrapmaster.com">
-                                    <span class="avatar-status badge-success"></span>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>Yiorgos Avraamu</div>
-                                  <div class="small text-muted">
-                                    <span>New</span> | Registered: Jan 1, 2015</div>
-                                </td>
-                                <td class="text-center">
-                                  email@email.com
-                                </td>
-                                <td>
-                                  +234703333333
-                                </td>
-                                <td class="text-center">
-                                  Computer Science
-                                </td>
-                                <td class="text-center">
-                                      Science
-                                    </td>
-                                <td>
-                                  <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="text-center">
-                                  <div class="avatar">
-                                    <img class="img-avatar" src="img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
-                                    <span class="avatar-status badge-danger"></span>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>Avram Tarasios</div>
-                                  <div class="small text-muted">
-                                    <span>Recurring</span> | Registered: Jan 1, 2015</div>
-                                </td>
-                                <td class="text-center">
-                                      email@email.com
-                                    </td>
-                                    <td>
-                                      +234703333333
-                                    </td>
-                                    <td class="text-center">
-                                      Computer Science
-                                    </td>
-                                    <td class="text-center">
-                                          Science
-                                        </td>
-                                    <td>
-                                      <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                    </td>
-                              </tr>
-                              <tr>
-                                <td class="text-center">
-                                  <div class="avatar">
-                                    <img class="img-avatar" src="img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
-                                    <span class="avatar-status badge-warning"></span>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>Quintin Ed</div>
-                                  <div class="small text-muted">
-                                    <span>New</span> | Registered: Jan 1, 2015</div>
-                                </td>
-                                <td class="text-center">
-                                      email@email.com
-                                    </td>
-                                    <td>
-                                      +234703333333
-                                    </td>
-                                    <td class="text-center">
-                                      Computer Science
-                                    </td>
-                                    <td class="text-center">
-                                          Science
-                                        </td>
-                                    <td>
-                                      <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                    </td>
-                              </tr>
-                              <tr>
-                                <td class="text-center">
-                                  <div class="avatar">
-                                    <img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
-                                    <span class="avatar-status badge-secondary"></span>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>Enéas Kwadwo</div>
-                                  <div class="small text-muted">
-                                    <span>New</span> | Registered: Jan 1, 2015</div>
-                                </td>
-                                <td class="text-center">
-                                      email@email.com
-                                    </td>
-                                    <td>
-                                      +234703333333
-                                    </td>
-                                    <td class="text-center">
-                                      Computer Science
-                                    </td>
-                                    <td class="text-center">
-                                          Science
-                                        </td>
-                                    <td>
-                                      <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                    </td>
-                              </tr>
-                              <tr>
-                                <td class="text-center">
-                                  <div class="avatar">
-                                    <img class="img-avatar" src="img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
-                                    <span class="avatar-status badge-success"></span>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>Agapetus Tadeáš</div>
-                                  <div class="small text-muted">
-                                    <span>New</span> | Registered: Jan 1, 2015</div>
-                                </td>
-                                <td class="text-center">
-                                      email@email.com
-                                    </td>
-                                    <td>
-                                      +234703333333
-                                    </td>
-                                    <td class="text-center">
-                                      Computer Science
-                                    </td>
-                                    <td class="text-center">
-                                          Science
-                                        </td>
-                                    <td>
-                                      <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                    </td>
-                              </tr>
-                              <tr>
-                                <td class="text-center">
-                                  <div class="avatar">
-                                    <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
-                                    <span class="avatar-status badge-danger"></span>
-                                  </div>
-                                </td>
-                                <td>
-                                  <div>Friderik Dávid</div>
-                                  <div class="small text-muted">
-                                    <span>New</span> | Registered: Jan 1, 2015</div>
-                                </td>
-                                <td class="text-center">
-                                      email@email.com
-                                    </td>
-                                    <td>
-                                      +234703333333
-                                    </td>
-                                    <td class="text-center">
-                                      Computer Science
-                                    </td>
-                                    <td class="text-center">
-                                          Science
-                                        </td>
-                                    <td>
-                                      <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                    </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                    <br>
-                    <table class="table table-responsive-sm table-hover table-outline mb-0">
-                      <thead class="thead-light">
-                        <tr>
-                          <th class="text-center">
-                            <i class="icon-people"></i>
-                          </th>
-                          <th>Candidate's Name</th>
-                          <th class="text-center">Email</th>
-                          <th class="text-center">Telephone</th>
-                          <th>Department</th>
-                          <th class="text-center">Faculty</th>
-                          <th>Status</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="text-center">
-                            <div class="avatar">
-                              <img class="img-avatar" src="img/avatars/1.jpg" alt="admin@bootstrapmaster.com">
-                              <span class="avatar-status badge-success"></span>
-                            </div>
-                          </td>
-                          <td>
-                            <div>Yiorgos Avraamu</div>
-                            <div class="small text-muted">
-                              <span>New</span> | Registered: Jan 1, 2015</div>
-                          </td>
-                          <td class="text-center">
-                            email@email.com
-                          </td>
-                          <td>
-                            +234703333333
-                          </td>
-                          <td class="text-center">
-                            Computer Science
-                          </td>
-                          <td class="text-center">
-                                Science
-                              </td>
-                          <td>
-                            <button class="btn btn-block btn-primary" type="button">Approve</button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="avatar">
-                              <img class="img-avatar" src="img/avatars/2.jpg" alt="admin@bootstrapmaster.com">
-                              <span class="avatar-status badge-danger"></span>
-                            </div>
-                          </td>
-                          <td>
-                            <div>Avram Tarasios</div>
-                            <div class="small text-muted">
-                              <span>Recurring</span> | Registered: Jan 1, 2015</div>
-                          </td>
-                          <td class="text-center">
-                                email@email.com
-                              </td>
-                              <td>
-                                +234703333333
-                              </td>
-                              <td class="text-center">
-                                Computer Science
-                              </td>
-                              <td class="text-center">
-                                    Science
-                                  </td>
-                              <td>
-                                <button class="btn btn-block btn-primary" type="button">Approve</button>
-                              </td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="avatar">
-                              <img class="img-avatar" src="img/avatars/3.jpg" alt="admin@bootstrapmaster.com">
-                              <span class="avatar-status badge-warning"></span>
-                            </div>
-                          </td>
-                          <td>
-                            <div>Quintin Ed</div>
-                            <div class="small text-muted">
-                              <span>New</span> | Registered: Jan 1, 2015</div>
-                          </td>
-                          <td class="text-center">
-                                email@email.com
-                              </td>
-                              <td>
-                                +234703333333
-                              </td>
-                              <td class="text-center">
-                                Computer Science
-                              </td>
-                              <td class="text-center">
-                                    Science
-                                  </td>
-                              <td>
-                                <button class="btn btn-block btn-primary" type="button">Approve</button>
-                              </td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="avatar">
-                              <img class="img-avatar" src="img/avatars/4.jpg" alt="admin@bootstrapmaster.com">
-                              <span class="avatar-status badge-secondary"></span>
-                            </div>
-                          </td>
-                          <td>
-                            <div>Enéas Kwadwo</div>
-                            <div class="small text-muted">
-                              <span>New</span> | Registered: Jan 1, 2015</div>
-                          </td>
-                          <td class="text-center">
-                                email@email.com
-                              </td>
-                              <td>
-                                +234703333333
-                              </td>
-                              <td class="text-center">
-                                Computer Science
-                              </td>
-                              <td class="text-center">
-                                    Science
-                                  </td>
-                              <td>
-                                <button class="btn btn-block btn-primary" type="button">Approve</button>
-                              </td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="avatar">
-                              <img class="img-avatar" src="img/avatars/5.jpg" alt="admin@bootstrapmaster.com">
-                              <span class="avatar-status badge-success"></span>
-                            </div>
-                          </td>
-                          <td>
-                            <div>Agapetus Tadeáš</div>
-                            <div class="small text-muted">
-                              <span>New</span> | Registered: Jan 1, 2015</div>
-                          </td>
-                          <td class="text-center">
-                                email@email.com
-                              </td>
-                              <td>
-                                +234703333333
-                              </td>
-                              <td class="text-center">
-                                Computer Science
-                              </td>
-                              <td class="text-center">
-                                    Science
-                                  </td>
-                              <td>
-                                <button class="btn btn-block btn-primary" type="button">Approve</button>
-                              </td>
-                        </tr>
-                        <tr>
-                          <td class="text-center">
-                            <div class="avatar">
-                              <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
-                              <span class="avatar-status badge-danger"></span>
-                            </div>
-                          </td>
-                          <td>
-                            <div>Friderik Dávid</div>
-                            <div class="small text-muted">
-                              <span>New</span> | Registered: Jan 1, 2015</div>
-                          </td>
-                          <td class="text-center">
-                                email@email.com
-                              </td>
-                              <td>
-                                +234703333333
-                              </td>
-                              <td class="text-center">
-                                Computer Science
-                              </td>
-                              <td class="text-center">
-                                    Science
-                                  </td>
-                              <td>
-                                <button class="btn btn-block btn-primary" type="button">Approve</button>
-                              </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    
                   </div>
                 </div>
+                <!-- /.col-->
               </div>
-              <!-- /.col-->
-            </div>
+              <!-- /.modal-->
+              <div class="modal fade" id="primaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-primary" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Add Questions for COM 101: Intro. to Programming</h4>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                            <div class="card">
+                              <!-- <div class="card-header"></div> -->
+                              <div class="card-body">
+                                <form action="" method="post">
+                                  <div class="form-group">
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text">Question</span>
+                                      </div>
+                                      <textarea class="form-control" id="textarea-input" name="textarea-input" rows="9" placeholder="Questions.."></textarea>
+                                      <div class="input-group-append">
+                                        <span class="input-group-text">
+                                          @?
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                        <div class="input-group">
+                                          <div class="input-group-prepend">
+                                            <span class="input-group-text">Answer Option</span>
+                                          </div>
+                                          <input class="form-control" id="username3" type="text" name="username3">
+                                          <div class="input-group-append">
+                                            <span class="input-group-text">
+                                              #1
+                                            </span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                            <div class="input-group">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text">Answer Option</span>
+                                              </div>
+                                              <input class="form-control" id="username3" type="text" name="username3">
+                                              <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                  #2
+                                                </span>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                                <div class="input-group">
+                                                  <div class="input-group-prepend">
+                                                    <span class="input-group-text">Answer Option</span>
+                                                  </div>
+                                                  <input class="form-control" id="username3" type="text" name="username3">
+                                                  <div class="input-group-append">
+                                                    <span class="input-group-text">
+                                                      #3
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                          <div class="form-group">
+                                                    <div class="input-group">
+                                                      <div class="input-group-prepend">
+                                                        <span class="input-group-text">Answer Option</span>
+                                                      </div>
+                                                      <input class="form-control" id="username3" type="text" name="username3">
+                                                      <div class="input-group-append">
+                                                        <span class="input-group-text">
+                                                          #4
+                                                        </span>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                  <div class="form-group">
+                                    <div class="input-group">
+                                      <div class="input-group-prepend">
+                                        <span class="input-group-text">Correct Option</span>
+                                      </div>
+                                      <input class="form-control" id="correct" type="text" name="correct">
+                                      <div class="input-group-append">
+                                        <span class="input-group-text">
+                                          <i class="fa fa-envelope"></i>
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group form-actions">
+                                    <button class="btn btn-sm btn-primary" type="submit">Submit</button>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                      </div>
+                    </div>
+                    <!-- /.modal-content-->
+                  </div>
+                  <!-- /.modal-dialog-->
+                </div>
+      
             <!-- /.row-->
           </div>
         </div>

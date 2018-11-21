@@ -10,7 +10,9 @@
     })
       .then((res) => res.json())
       .then((data) =>{
-        if(data.success==='true') {
+        if(data.success === 'true') {
+          localStorage.clear()
+          localStorage.setItem('token', data.token)
           window.location.replace(`${redirectHome}`)
          }
          else{

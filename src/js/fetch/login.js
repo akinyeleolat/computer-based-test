@@ -9,13 +9,15 @@ const login = (url,dataBody,redirectHome) => {
     body:dataBody
   })
     .then((res) => res.json())
-    .then((data) =>{
-      if(data.success==='true'){
+    .then((data) => {
+      if (data.success === 'true') {
+        localStorage.clear()
+        localStorage.setItem('token', data.token)
         window.location.replace(`${redirectHome}`)
-       }
-       else{
-         document.getElementById('responseMessage').innerHTML = data.message
-       }
+      }
+      else {
+        document.getElementById('responseMessage').innerHTML = data.message
+      }
     })
     .catch((error) => {
       document.getElementById('responseMessage').innerHTML = error

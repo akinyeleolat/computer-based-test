@@ -24,6 +24,7 @@ router.patch('/users/:id', middlewares.validateApproveUser, UserController.appro
 router.get('/admins', AdminController.getAllAdminUsers);
 router.get('/admins/:id', AdminController.getAdmin);
 router.patch('/admins/:id', middlewares.validateApproveUser, AdminController.approveAdmin);
+router.get('/courses/approved', CourseController.getAllCourses);
 router.post('/courses', middlewares.validatePostCourse, CourseController.postCourse);
 router.patch('/courses/:id', middlewares.validateUpdateCourse, CourseController.updateCourse);
 router.delete('/courses/:id', CourseController.deleteCourse);

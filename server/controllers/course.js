@@ -18,7 +18,7 @@ class CourseController {
 
   static postCourse(req, res) {
     const { adminId } = req;
-    let { courseTitle,courseDescription } = req.body;
+    let { courseTitle, courseDescription } = req.body;
     courseTitle = courseTitle ? courseTitle.toString().replace(/\s+/g, '') : courseTitle;
     courseDescription = courseDescription ? courseDescription.toString().replace(/\s+/g, '') : courseDescription;
     const courseAvailability = process.env.DEFAULT_AVAILABLE;

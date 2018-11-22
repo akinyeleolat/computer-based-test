@@ -37,7 +37,7 @@ export default class Admin {
 */
 
 findByStatus(status) {
-  const sql = 'SELECT firstname, lastname, email, telephone, department, faculty, image_url, created_at FROM admin_users WHERE admin_status = $1';
+  const sql = 'SELECT id, firstname, lastname, email, telephone, department, faculty, image_url, created_at FROM admin_users WHERE admin_status = $1';
   return this.db.many(sql, status);
 }
   /**

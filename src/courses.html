@@ -450,116 +450,34 @@
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header">
-                      <i class="fa fa-align-justify"></i> Pending Approve Course</div>
+                      <i class="fa fa-align-justify"></i> Pending Approve Course 
+                      <a href="javascript:location.reload(true)" style="float:right">Refresh Page</a>
+                    </div>
                     <div class="card-body">
                       <!-- Button trigger modal-->
-                      <a href="#primaryModal" rel="modal:open"><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#primaryModal">Add Courses</button></a>
+                      <!-- <a href="#primaryModal" rel="modal:open"> -->
+                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#primaryModal">Add Courses</button>
+                      <!-- </a> -->
                       <hr>
-                      </div>
-                      </div>
-                      </div>
-                      </div>
-            <div class="row">
-                <div class="col-sm-6 col-lg-3">
-                  <div class="brand-card">
-                                <div class="brand-card-header bg-facebook">
-                                  <img src="./img/course/cbt.png" width="70%">
-                                  <div class="h1 text-muted text-right mb-4">
-                                      <i class="icon-speedometer"></i>
-                                    </div>
-                                  <div class="chart-wrapper">
-                                    <canvas id="social-box-chart-1" height="90"></canvas>
-                                  </div>
-                                </div>
-                                <div class="brand-card-body">
-                                    <h6>Algebra for Programmers</h6>
-                                    <div>
-                                      <div class="text-value">35</div>
-                                      <div class="text-uppercase text-muted small">Questions</div>
-                                      <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                    </div>
-                                </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                              <div class="brand-card">
-                                  <div class="brand-card-header bg-twitter">
-                                    <img src="./img/course/cbt.png" width="70%">
-                                    <div class="h1 text-muted text-right mb-4">
-                                        <i class="icon-speedometer"></i>
-                                      </div>
-                                    <div class="chart-wrapper">
-                                      <canvas id="social-box-chart-1" height="90"></canvas>
-                                    </div>
-                                  </div>
-                                  <div class="brand-card-body">
-                                      <h6>Algebra for Programmers</h6>
-                                      <div>
-                                        <div class="text-value">35</div>
-                                        <div class="text-uppercase text-muted small">Questions</div>
-                                        <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                      </div>
-                                  </div>
-                                </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                              <div class="brand-card">
-                                  <div class="brand-card-header bg-linkedin">
-                                    <img src="./img/course/cbt.png" width="70%">
-                                    <div class="h1 text-muted text-right mb-4">
-                                        <i class="icon-speedometer"></i>
-                                      </div>
-                                    <div class="chart-wrapper">
-                                      <canvas id="social-box-chart-1" height="90"></canvas>
-                                    </div>
-                                  </div>
-                                  <div class="brand-card-body">
-                                      <h6>Algebra for Programmers</h6>
-                                      <div>
-                                        <div class="text-value">35</div>
-                                        <div class="text-uppercase text-muted small">Questions</div>
-                                        <button class="btn btn-block btn-primary" type="button">Approve</button>
-                                      </div>
-                                  </div>
-                                  
-                                </div>
-                </div> 
-                <div class="col-sm-6 col-lg-3">
-                                <div class="brand-card">
-                                    <div class="brand-card-header bg-google-plus">
-                                      <img src="./img/course/cbt.png" width="70%">
-                                      <div class="h1 text-muted text-right mb-4">
-                                          <i class="icon-speedometer"></i>
-                                        </div>
-                                      <div class="chart-wrapper">
-                                        <canvas id="social-box-chart-1" height="90"></canvas>
-                                      </div>
-                                    </div>
-                                    <div class="brand-card-body">
-                                        <h6>Algebra for Programmers</h6>
-                                        <div>
-                                          <div class="text-value">35</div>
-                                          <div class="text-uppercase text-muted small">Questions</div>
-                                          <button class="btn btn-block btn-danger" type="button">Approve</button>
-                                        </div>
-                                    </div>
-                                    
-                                  </div>
-                </div> 
+                      <div class="row" id="courseView">
                 
-             </div>              
+                      </div>
+                      </div>
+                      </div>
+                      </div>
+                      </div>
                     </div>
                   </div>
                 </div>
                 <!-- /.col-->
               </div>
               <!-- /.modal-->
-              <div class="modal " id="primaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal fade" id="primaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-primary" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
                         <h4 class="modal-title">Add Courses</h4>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <button class="close" id="close" type="button" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">×</span>
                         </button>
                       </div>
@@ -567,13 +485,13 @@
                             <div class="card">
                               <!-- <div class="card-header"></div> -->
                               <div class="card-body">
-                                <form action="" method="post">
+                                <form id="addCourses" action="" method="post">
                                   <div class="form-group">
                                     <div class="input-group">
                                       <div class="input-group-prepend">
                                         <span class="input-group-text">Course Code</span>
                                       </div>
-                                      <input class="form-control" id="username3" type="text" name="username3">
+                                      <input class="form-control" id="courseTitle" type="text" name="courseTitle">
                                       <div class="input-group-append">
                                         <span class="input-group-text">
                                           <i class="fa fa-user"></i>
@@ -584,9 +502,9 @@
                                   <div class="form-group">
                                     <div class="input-group">
                                       <div class="input-group-prepend">
-                                        <span class="input-group-text">Course Title</span>
+                                        <span class="input-group-text">Course Description</span>
                                       </div>
-                                      <input class="form-control" id="email3" type="email" name="email3">
+                                      <input class="form-control" id="course_description" type="text" name="Course Description">
                                       <div class="input-group-append">
                                         <span class="input-group-text">
                                           <i class="fa fa-envelope"></i>
@@ -595,8 +513,10 @@
                                     </div>
                                   </div>
                                   <div class="form-group form-actions">
-                                    <button class="btn btn-sm btn-primary" type="submit">Submit</button>
+                                    <!-- <button class="btn btn-sm btn-primary" type="submit">Submit</button> -->
+                                    <input class="btn btn-sm btn-primary" type="submit" value="Add Courses">
                                   </div>
+                                  <div class="row" id="responseMessage"></div>
                                 </form>
                               </div>
                             </div>
@@ -914,12 +834,15 @@
     <script src="node_modules/pace-progress/pace.min.js"></script>
     <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
     <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" /> -->
     <!-- Plugins and scripts required by this view-->
     <script src="node_modules/chart.js/dist/Chart.min.js"></script>
     <script src="node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
     <script src="js/main.js"></script>
+    <!-- script for fetchApi-->
+    <script src="./js/fetch/addCourses.js"></script>
+    <!-- <script src="./js/fetch/getCourses.js"></script> -->
   </body>
 </html>

@@ -1,16 +1,19 @@
 let  imageLink;
 // handle image upload
 cloudinary.applyUploadWidget('#upload_widget_opener',{ 
-  cloudName: 'akinyeleolat', uploadPreset: 'preset1', 
-  cropping: true, folder: 'cbt' }, (error, result) => {
-    if (result && result.event === "success") {
-      // do something
-       imageLink = result.info.url
-      return imageLink
+  cloudName: 'akinyeleolat',
+  uploadPreset: 'preset1',
+  cropping: true,
+  folder: 'cbt'
+}, (error, result) => {
+  if (result && result.event === 'success') {
+    // do something
+    imageLink = result.info.url
+    return imageLink
   }
-   }); 
-   // create user account
-const createAccount = (url,dataBody,redirectHome) => {
+})
+// create user account
+const createAccount = (url, dataBody) => {
   fetch(url, {
     method:'POST',
     headers:{
@@ -20,13 +23,13 @@ const createAccount = (url,dataBody,redirectHome) => {
     body:dataBody
   })
     .then((res) => res.json())
-    .then((data) =>{
-      if(data.success==='true'){
-        document.getElementById('responseMessage').innerHTML = data.message+` Kindly await the admin to activate your account`
-       }
-       else{
-         document.getElementById('responseMessage').innerHTML = data.message
-       }
+    .then((data) => {
+      if (data.success === 'true') {
+        document.getElementById('responseMessage').innerHTML = `${data.message} Kindly await the admin to activate your account`
+      }
+      else {
+        document.getElementById('responseMessage').innerHTML = data.message
+      }
     })
     .catch((error) => {
       document.getElementById('responseMessage').innerHTML = error
@@ -45,6 +48,7 @@ const addUser = (event) => {
   const department = document.getElementById('department').value.trim()
   const faculty = document.getElementById('faculty').value.trim()
   const accountType = document.querySelector('.form-check-input:checked').value
+  console.log(accountType)
   const imageUrl =  imageLink
   
   // check password matched
@@ -55,11 +59,10 @@ const addUser = (event) => {
     //https://cbtng.herokuapp.com/api/v1/auth/admin/signup
     //admin details
     const adminUrl = 'https://cbtng.herokuapp.com/api/v1/auth/admin/signup'
-    const adminHome = './adminHome.html'
-    
+ 
     // candidate details
     const candidateUrl = 'https://cbtng.herokuapp.com/api/v1/auth/signup'
-    const candidateHome = './candidateHome.html'
+
     // Data body
     const dataBody = JSON.stringify({
       firstname: firstName,
@@ -72,12 +75,22 @@ const addUser = (event) => {
       faculty
     })
     // create user account
-    if (accountType === 'admin' || 'lecturer') {
-      createAccount(adminUrl,dataBody,adminHome)
-    }
     if (accountType === 'candidate') {
-      createAccount(candidateUrl,dataBody,candidateHome)
-  }
+      console.log('candidateCreated')
+      createAccount(candidateUrl,dataBody)
+    }
+    else if (accountType === 'admin') {
+      console.log('adminCreated')
+      createAccount(adminUrl,dataBody) 
+    }
+    else if (accountType === 'lecturer') {
+      console.log('lecturerCreated')
+      createAccount(adminUrl,dataBody) 
+    }
+    else {
+      document.getElementById('responseMessage').innerHTML = 'Kindly pick and account type'
+    }
+    
 }
 }
 document.getElementById('SignUpUser').addEventListener('submit', addUser)

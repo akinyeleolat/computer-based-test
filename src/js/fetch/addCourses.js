@@ -89,7 +89,7 @@ const fetchCourses = () => {
                             <i class="fa fa-laptop bg-info p-3 font-2xl mr-3"></i>
                             <div>
                               <div class="text-value-sm text-info">${viewCourses.course_title.toUpperCase()}</div>
-                              <span class="small font-weight-bold">${viewCourses.created_at}</span>
+                              <span class="small font-weight-bold">New</span>
                             </div>
                           </div>
                           <div class="card-footer px-3 py-2">
@@ -124,8 +124,7 @@ window.onload = function () {
     window.location.replace('./admin_login.html')
     // eslint-disable-next-line no-alert
     alert('Kindly login or create Account')
-  }
-  else {
+  } else {
     fetchCourses()
   }
 }

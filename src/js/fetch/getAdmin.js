@@ -62,7 +62,7 @@ const fetchAdmin = () => {
                       </div>
                     </td>
                     <td>
-                      <div>${viewAdmin.lastname} ${viewAdmin.firstname}</div>
+                      <div>${viewAdmin.lastname.toUpperCase()} ${viewAdmin.firstname.toUpperCase()}</div>
                       <div class="small text-muted">
                         <span>New</span> | Registered: ${viewAdmin.created_at}</div>
                     </td>
@@ -73,12 +73,13 @@ const fetchAdmin = () => {
                     ${viewAdmin.telephone}
                     </td>
                     <td class="text-center">
-                    ${viewAdmin.department}
+                    ${viewAdmin.department.toUpperCase()}
                     </td>
                     <td class="text-center">
-                    ${viewAdmin.faculty}
+                    ${viewAdmin.faculty.toUpperCase()}
                         </td>
                     <td>
+                    <div id="candidateId" style="display:none">${viewAdmin.id}</div>
                       <button class="btn btn-block btn-primary" type="button">Approve</button>
                     </td>
                   </tr>`
@@ -148,7 +149,7 @@ const fetchCandidate = () => {
                         </div>
                       </td>
                       <td>
-                        <div>${viewCandidates.lastname} ${viewCandidates.firstname}</div>
+                        <div>${viewCandidates.lastname.toUpperCase()} ${viewCandidates.firstname.toUpperCase()}</div>
                         <div class="small text-muted">
                           <span>New</span> | Registered: ${viewCandidates.created_at}</div>
                       </td>
@@ -159,12 +160,13 @@ const fetchCandidate = () => {
                       ${viewCandidates.telephone}
                       </td>
                       <td class="text-center">
-                      ${viewCandidates.department}
+                      ${viewCandidates.department.toUpperCase()}
                       </td>
                       <td class="text-center">
-                      ${viewCandidates.faculty}
+                      ${viewCandidates.faculty.toUpperCase()}
                           </td>
                       <td>
+                      <div id="candidateId" style="display:none">${viewCandidates.id}</div>
                         <button class="btn btn-block btn-primary" type="button">Approve</button>
                       </td>
                     </tr>`

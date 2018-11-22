@@ -89,14 +89,15 @@ const fetchCourses = () => {
                             <i class="fa fa-laptop bg-info p-3 font-2xl mr-3"></i>
                             <div>
                               <div class="text-value-sm text-info">${viewCourses.course_title.toUpperCase()}</div>
-                              <div class="text-muted text-uppercase font-weight-bold small">${viewCourses.course_description.toUpperCase()}</div>
+                              <span class="small font-weight-bold">${viewCourses.created_at}</span>
                             </div>
+                          </div>
+                          <div class="card-footer px-3 py-2">
+                          <div class="text-muted text-uppercase font-weight-bold small">${viewCourses.course_description.toUpperCase()}</div>
                           </div>
                           <div class="card-footer px-3 py-2">
                           <div class="text-uppercase text-muted small" id="courseID" style="display:none">${viewCourses.id}</div>
                             <a class="btn-block text-muted d-flex justify-content-between align-items-center">
-                              <span class="small font-weight-bold">${viewCourses.created_at}</span>
-                              <i class="fa fa-angle-right"></i>
                               <button class="btn btn-block btn-primary" type="button">Approve</button>
                             </a>
                           </div>

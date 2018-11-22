@@ -3,6 +3,7 @@ const addCourses = (event) => {
   event.preventDefault()
   //  get form input
   const courseTitle = document.getElementById('courseTitle').value.trim()
+  const courseDescription = document.getElementById('course_description').value.trim()
   if (!token) {
     window.location.replace('./admin_login.html')
     // eslint-disable-next-line no-alert
@@ -11,9 +12,10 @@ const addCourses = (event) => {
   else {
     // document.getElementById('responseMessage').innerHTML = courseTitle
     const dataBody = JSON.stringify({
-      courseTitle
+      courseTitle,
+      courseDescription
     })
-    const URL = 'https://cbtng.herokuapp.com/api/v1/courses/Approve'
+    const URL = 'https://cbtng.herokuapp.com/api/v1/courses'
     createCourses(URL, dataBody)
   }
 }

@@ -18,8 +18,8 @@ class AdminController {
     firstname = firstname ? firstname.toString().replace(/\s+/g, '') : firstname;
     lastname = lastname ? lastname.toString().replace(/\s+/g, '') : lastname;
     telephone = telephone ? telephone.toString().replace(/\s+/g, '') : telephone;
-    department = department ? department.toString().replace(/\s+/g, '') : department;
-    faculty = faculty ? faculty.toString().replace(/\s+/g, '') : faculty;
+    department = department ? department.toString().replace(/\s+/g, ' ') : department;
+    faculty = faculty ? faculty.toString().replace(/\s+/g, ' ') : faculty;
     email = email ? email.toString().replace(/\s+/g, '') : email;
     image = image ? image.toString().replace(/\s+/g, '') : image;
 

@@ -20,7 +20,7 @@ class CourseController {
     const { adminId } = req;
     let { courseTitle, courseDescription } = req.body;
     courseTitle = courseTitle ? courseTitle.toString().replace(/\s+/g, '') : courseTitle;
-    courseDescription = courseDescription ? courseDescription.toString().replace(/\s+/g, '') : courseDescription;
+    courseDescription = courseDescription ? courseDescription.toString().replace(/\s+/g, ' ') : courseDescription;
     const courseAvailability = process.env.DEFAULT_AVAILABLE;
     const superAdminStatus = process.env.ADMIN_SUPER;
     db.task('find admin user', data => data.admin.findById(adminId)

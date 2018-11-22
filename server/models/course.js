@@ -13,7 +13,7 @@ export default class Course {
   */
 
   create(values) {
-    const sql = 'INSERT INTO courses (course_title, course_availability) VALUES(${courseTitle}, ${courseAvailability}) RETURNING *';
+    const sql = 'INSERT INTO courses (course_title, course_description, course_availability) VALUES(${courseTitle}, ${courseDescription}, ${courseAvailability}) RETURNING *';
     return this.db.one(sql, values);
   }
   /**

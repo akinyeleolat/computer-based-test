@@ -28,11 +28,14 @@ const postCourseError = (message) => {
   
   
   const validatePostCourse = (req, res, next) => {
-    let { courseTitle } = req.body;
+    let { courseTitle, courseDescription } = req.body;
     courseTitle = courseTitle && courseTitle.toString().trim();
+    courseDescription = courseDescription && courseDescription.toString().trim();
   
     if (!courseTitle) return next(postCourseError('you must input a title for the subject course'));
     if (courseTitle && courseTitle.length < 6) return next(postCourseError('course title must be a minimum of six characters'));
+    if (!courseDescription) return next(postCourseError('you must input description for the subject course'));
+    if (courseDescription && courseDescription.length < 10) return next(postCourseError('course description must be a minimum of ten characters'));
     return next();
   };
   export default validatePostCourse;

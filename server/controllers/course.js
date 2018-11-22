@@ -18,8 +18,9 @@ class CourseController {
 
   static postCourse(req, res) {
     const { adminId } = req;
-    let { courseTitle } = req.body;
+    let { courseTitle,courseDescription } = req.body;
     courseTitle = courseTitle ? courseTitle.toString().replace(/\s+/g, '') : courseTitle;
+    courseDescription = courseDescription ? courseDescription.toString().replace(/\s+/g, '') : courseDescription;
     const courseAvailability = process.env.DEFAULT_AVAILABLE;
     const superAdminStatus = process.env.ADMIN_SUPER;
     db.task('find admin user', data => data.admin.findById(adminId)
@@ -38,7 +39,7 @@ class CourseController {
                 message: 'this course title already exist in the database',
               });
             }
-            return db.course.create({ courseTitle, courseAvailability })
+            return db.course.create({ courseTitle, courseDescription, courseAvailability })
               .then(() => {
                 return res.status(201).json({
                   success: 'true',

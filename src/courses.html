@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<!--
-* CoreUI - Free Bootstrap Admin Template
-* @version v2.1.7
-* @link https://coreui.io
-* Copyright (c) 2018 creativeLabs Łukasz Holeczek
-* Licensed under MIT (https://coreui.io/license)
--->
+
 
 <html lang="en">
   <head>
@@ -46,8 +40,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="#">
-        <img class="navbar-brand-full" src="img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+        <img class="navbar-brand-full" src="img/course/cbt.png" width="89" height="89" alt="CBT Logo">
+        <img class="navbar-brand-minimized" src="img/course/cbt.png" width="30" height="30" alt="CBT Logo">
       </a>
       <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
         <span class="navbar-toggler-icon"></span>
@@ -454,11 +448,7 @@
                       <a href="javascript:location.reload(true)" style="float:right">Refresh Page</a>
                     </div>
                     <div class="card-body">
-                      <!-- Button trigger modal-->
-                      <!-- <a href="#primaryModal" rel="modal:open"> -->
-                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#primaryModal">Add Courses</button>
-                      <!-- </a> -->
-                      <hr>
+                      
                       <div class="row" id="courseView">
                 
                       </div>
@@ -471,61 +461,7 @@
                 </div>
                 <!-- /.col-->
               </div>
-              <!-- /.modal-->
-              <div class="modal fade" id="primaryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-primary" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h4 class="modal-title">Add Courses</h4>
-                        <button class="close" id="close" type="button" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">×</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                            <div class="card">
-                              <!-- <div class="card-header"></div> -->
-                              <div class="card-body">
-                                <form id="addCourses" action="" method="post">
-                                  <div class="form-group">
-                                    <div class="input-group">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text">Course Code</span>
-                                      </div>
-                                      <input class="form-control" id="courseTitle" type="text" name="courseTitle">
-                                      <div class="input-group-append">
-                                        <span class="input-group-text">
-                                          <i class="fa fa-user"></i>
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="form-group">
-                                    <div class="input-group">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text">Course Description</span>
-                                      </div>
-                                      <input class="form-control" id="course_description" type="text" name="Course Description">
-                                      <div class="input-group-append">
-                                        <span class="input-group-text">
-                                          <i class="fa fa-envelope"></i>
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="form-group form-actions">
-                                    <!-- <button class="btn btn-sm btn-primary" type="submit">Submit</button> -->
-                                    <input class="btn btn-sm btn-primary" type="submit" value="Add Courses">
-                                  </div>
-                                  <div class="row" id="responseMessage"></div>
-                                </form>
-                              </div>
-                            </div>
-                      </div>
-                    </div>
-                    <!-- /.modal-content-->
-                  </div>
-                  <!-- /.modal-dialog-->
-                </div>
+              
       
             <!-- /.row-->
           </div>
@@ -842,7 +778,7 @@
     <script src="node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
     <script src="js/main.js"></script>
     <!-- script for fetchApi-->
-    <script src="./js/fetch/addCourses.js"></script>
-    <!-- <script src="./js/fetch/getCourses.js"></script> -->
+    <!-- <script src="./js/fetch/addCourses.js"></script> -->
+    <script src="./js/fetch/getCourses.js"></script>
   </body>
 </html>

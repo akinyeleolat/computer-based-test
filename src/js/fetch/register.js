@@ -25,7 +25,8 @@ const createAccount = (url, dataBody) => {
     .then((res) => res.json())
     .then((data) => {
       if (data.success === 'true') {
-        document.getElementById('responseMessage').innerHTML = `${data.message} Kindly await the admin to activate your account`
+        document.getElementById('responseMessage').innerHTML = `${data.message} <br>
+        <a href="./index.html" target="_self> < Back </a>`
       }
       else {
         document.getElementById('responseMessage').innerHTML = data.message

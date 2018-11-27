@@ -41,8 +41,8 @@ const fetchCourses = () => {
                           </div>
                           <div class="card-footer px-3 py-2">
                           <div class="text-uppercase text-muted small" id="courseID" style="display:none">${viewCourses.id}</div>
-                            <a class="btn-block text-muted d-flex justify-content-between align-items-center">
-                              <button class="btn btn-block btn-primary approveBtn" type="button" id="approveBtn">Approve</button>
+                            <a class="btn-block text-muted d-flex justify-content-between align-items-center" href="./questions.html" target="_blank">
+                              <button class="btn btn-block btn-primary addQuestion" type="button" id="addQuestion">Add Question</button>
                             </a>
                           </div>
                         </div>
@@ -51,9 +51,10 @@ const fetchCourses = () => {
         })
         document.getElementById('courseView').innerHTML = courseItem
       } else {
-        window.location.replace('./courses.html')
-        // eslint-disable-next-line no-alert
-        alert('Access denied')
+        document.getElementById('courseView').innerHTML = data.message
+        // window.location.replace('./courses.html')
+        // // eslint-disable-next-line no-alert
+        // alert('Access denied')
       }
     })
     .catch((error) => {

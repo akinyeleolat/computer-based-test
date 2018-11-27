@@ -107,9 +107,10 @@ const fetchCourses = () => {
         })
         document.getElementById('courseView').innerHTML = courseItem
       } else {
-        window.location.replace('./courses.html')
-        // eslint-disable-next-line no-alert
-        alert('Access denied')
+        document.getElementById('courseView').innerHTML = data.message
+        // window.location.replace('./courses.html')
+        // // eslint-disable-next-line no-alert
+        // alert('Access denied')
       }
     })
     .catch((error) => {

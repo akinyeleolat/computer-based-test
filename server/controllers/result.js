@@ -56,7 +56,6 @@ class ResultController {
                     const resultId = result.id;
                     for (let value of answers) {
                       const choiceChosen = value.choice.toLowerCase().toString().replace(/\s+/g, '');
-                      debugger;
                       const questionId = value.questionId;
                       db.task('find question', data => data.question.findById(questionId)
                         .then((questionFound) => {

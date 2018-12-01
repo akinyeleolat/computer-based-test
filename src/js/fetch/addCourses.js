@@ -94,7 +94,7 @@ const fetchCourses = () => {
                           <div class="card-footer px-3 py-2">
                           <div class="text-uppercase text-muted small" id="courseID" style="display:none">${viewCourses.id}</div>
                             <a class="btn-block text-muted d-flex justify-content-between align-items-center">
-                              <button class="btn btn-block btn-primary approveBtn" type="button" id="approveBtn">Approve</button>
+                              <button class="btn btn-block btn-primary approveBtn" type="button" id="approveBtn ${viewCourses.id}">Approve</button>
                             </a>
                           </div>
                         </div>
@@ -105,8 +105,7 @@ const fetchCourses = () => {
         if (data.message === 'Expired user authorization token') {
           window.location.replace('./admin_login.html')
         } 
-      }
-      
+      }     
     })
     .catch((error) => {
       // eslint-disable-next-line no-console
@@ -116,32 +115,31 @@ const fetchCourses = () => {
 const approveCourses = () => {
   console.log('welcome')
 }
-const getApproval = () => {
-  const elementsArray = document.querySelectorAll('.approveBtn')
-  elementsArray.forEach((elem) => {
-    elem.addEventListener('click', () => {
-    // this function does stuff
-      if (event.target.parentElement.classList.contains('approveBtn')) {
-        console.log('button clicked')
-        approveCourses()
-      }
-    })
-  })
-}
-// const theParent = document.querySelector('approveBtn')
-// console.log(theParent)
-// theParent.addEventListener('click', doSomething, false)
-
-// const doSomething = (e) => {
-//   if (e.target !== e.currentTarget) {
-//     const clickedItem = e.target.id
-//     // eslint-disable-next-line no-alert
-//     alert(`Hello ${clickedItem}`)
-//     approveCourses()
-//   }
-//   e.stopPropagation()
+// const getApproval = () => {
+//   // const elementsArray = document.querySelectorAll('.approveBtn')
+//   // elementsArray.forEach((elem) => {
+//   //   elem.addEventListener('click', () => {
+//   //   // this function does stuff
+//   //     if (event.target.parentElement.classList.contains('approveBtn')) {
+//   //       console.log('button clicked')
+//   //       approveCourses()
+//   //     }
+//   //   })
+//   // })
 // }
 
+
+const doSomething = (e) => {
+  if (e.target !== e.currentTarget) {
+    const clickedItem = e.target.id
+    // eslint-disable-next-line no-alert
+    alert(`Hello ${clickedItem}`)
+    approveCourses()
+  }
+  e.stopPropagation()
+}
+const theParent = document.querySelector('#courseView')
+theParent.addEventListener('click', doSomething, false)
 document.getElementById('addCourses').addEventListener('submit', addCourses)
 window.onload = function () {
   if (!token) {
@@ -150,9 +148,9 @@ window.onload = function () {
     alert('Kindly login or create Account')
   } else {
     fetchCourses()
-    if (fetchCourses) {
-      getApproval()
-    }
+    // if (fetchCourses) {
+    //   getApproval()
+    // }
   }
 }
 

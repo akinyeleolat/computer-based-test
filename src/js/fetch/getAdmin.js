@@ -116,7 +116,6 @@ const approveAdmin = (URL, dataBody, adminID) => {
         alert('Access denied')
         window.location.replace('./adminHome.html')
       } else {
-        console.log(res.text)
         return res.json()
       }
     })

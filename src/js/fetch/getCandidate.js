@@ -75,10 +75,10 @@ const fetchCandidate = () => {
                       <td class="text-center">
                       ${viewCandidates.faculty.toUpperCase()}
                           </td>
-                      <td>
-                      <div id="candidateId" style="display:none">${viewCandidates.id}</div>
-                        <button class="btn btn-block btn-primary" type="button">Approve</button>
-                      </td>
+                          <td>
+                          <button class="btn btn-block btn-primary" type="button" id="${viewCandidates.id}">Approve</button>
+                          <div class="small" id="candidateId${viewCandidates.id}" style="display:none;color:#f86c6b">${viewCandidates.id}</div>
+                        </td>
                     </tr>`
         })
         outputCandidate += ` </tbody>
@@ -96,3 +96,51 @@ const fetchCandidate = () => {
       console.log(error)
     })
 }
+const approveCandidate = (URL, dataBody, userID) => {
+  const bearer = `${token}`
+  fetch(URL, {
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'token':bearer,
+      'Access-Control-Allow-Origin': '*'
+    },
+    body:dataBody
+  })
+    .then((res) => {
+      if (res.status === '401') {
+        // eslint-disable-next-line no-alert
+        alert('Access denied')
+        window.location.replace('./adminHome.html')
+      } else {
+        return res.json()
+      }
+    })
+    .then((data) => {
+      if (data.success === 'true') {
+        document.getElementById(`candidateId${userID}`).innerHTML = `${data.message}`
+        document.getElementById(`candidateId${userID}`).style.display = 'inline'
+      } else {
+        document.getElementById(`candidateId${userID}`).innerHTML = `${data.message}`
+        document.getElementById(`candidateId${userID}`).style.display = 'inline'
+      }
+    })
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error)
+    })
+}
+const getApproved = (e) => {
+  if (e.target !== e.currentTarget) {
+    const userID = e.target.id
+    const approveURL = `https://cbtng.herokuapp.com/api/v1/users/${userID}`
+    const approveBody = JSON.stringify({
+      approve : 'true'
+    })
+    approveCandidate(approveURL, approveBody, userID)
+  }
+  e.stopPropagation()
+}
+const theParent = document.querySelector('#candidateView')
+theParent.addEventListener('click', getApproved, false)

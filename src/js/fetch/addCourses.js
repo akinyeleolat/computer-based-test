@@ -9,8 +9,7 @@ const addCourses = (event) => {
     window.location.replace('./admin_login.html')
     // eslint-disable-next-line no-alert
     alert('Kindly login or create Account')
-  }
-  else {
+  } else {
     // document.getElementById('responseMessage').innerHTML = courseTitle
     const dataBody = JSON.stringify({
       courseTitle,
@@ -25,28 +24,26 @@ const createCourses = (URL, dataBody) => {
   fetch(URL, {
     method: 'POST',
     headers: {
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json',
-      'token':bearer,
-      "Access-Control-Allow-Origin": "*",
-      },
+      token:bearer,
+      'Access-Control-Allow-Origin': '*'
+    },
     body:dataBody
-    })
+  })
     .then((res) => {
       if (res.status === '401') {
         // eslint-disable-next-line no-alert
         alert('Access denied')
         window.location.replace('./adminHome.html')
-      }
-      else {
+      } else {
         return res.json()
       }
     })
     .then((data) => {
       if (data.success === 'true') {
         document.getElementById('responseMessage').innerHTML = `${data.message}`
-      }
-      else {
+      } else {
         document.getElementById('responseMessage').innerHTML = `${data.message}`
       }
     })
@@ -62,10 +59,10 @@ const fetchCourses = () => {
   fetch(URL, {
     method: 'GET',
     headers: {
-      'Accept': 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json',
-      'token':bearer,
-      "Access-Control-Allow-Origin": "*",
+      token:bearer,
+      'Access-Control-Allow-Origin': '*'
     }
   })
     .then((res) => {
@@ -73,8 +70,7 @@ const fetchCourses = () => {
         // eslint-disable-next-line no-alert
         alert('Access denied')
         window.location.replace('./adminHome.html')
-      }
-      else {
+      } else {
         return res.json()
       }
     })
@@ -106,12 +102,11 @@ const fetchCourses = () => {
           `
         })
         document.getElementById('courseView').innerHTML = courseItem
-      } else {
-        document.getElementById('courseView').innerHTML = data.message
-        // window.location.replace('./courses.html')
-        // // eslint-disable-next-line no-alert
-        // alert('Access denied')
+        if (data.message === 'Expired user authorization token') {
+          window.location.replace('./admin_login.html')
+        } 
       }
+      
     })
     .catch((error) => {
       // eslint-disable-next-line no-console
@@ -122,19 +117,30 @@ const approveCourses = () => {
   console.log('welcome')
 }
 const getApproval = () => {
-  const elementsArray = document.querySelectorAll('.btn btn-block btn-primary approveBtn')
-  console.log(elementsArray)
-
+  const elementsArray = document.querySelectorAll('.approveBtn')
   elementsArray.forEach((elem) => {
     elem.addEventListener('click', () => {
     // this function does stuff
-      if (event.target.parentElement.classList.contains('btn btn-block btn-primary approveBtn')) {
+      if (event.target.parentElement.classList.contains('approveBtn')) {
         console.log('button clicked')
         approveCourses()
       }
     })
   })
 }
+// const theParent = document.querySelector('approveBtn')
+// console.log(theParent)
+// theParent.addEventListener('click', doSomething, false)
+
+// const doSomething = (e) => {
+//   if (e.target !== e.currentTarget) {
+//     const clickedItem = e.target.id
+//     // eslint-disable-next-line no-alert
+//     alert(`Hello ${clickedItem}`)
+//     approveCourses()
+//   }
+//   e.stopPropagation()
+// }
 
 document.getElementById('addCourses').addEventListener('submit', addCourses)
 window.onload = function () {
@@ -144,10 +150,9 @@ window.onload = function () {
     alert('Kindly login or create Account')
   } else {
     fetchCourses()
-    getApproval()
-    // if (fetchCourses) {
-    //   getApproval()
-    // }
+    if (fetchCourses) {
+      getApproval()
+    }
   }
 }
 

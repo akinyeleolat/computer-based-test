@@ -10,7 +10,6 @@ window.onload = function () {
 }
 
 
-
 const fetchCandidate = () => {
     const URL = 'https://cbtng.herokuapp.com/api/v1/users'
     const bearer = `${token}`

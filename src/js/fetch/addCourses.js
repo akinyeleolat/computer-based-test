@@ -92,9 +92,9 @@ const fetchCourses = () => {
                           <div class="text-muted text-uppercase font-weight-bold small">${viewCourses.course_description.toUpperCase()}</div>
                           </div>
                           <div class="card-footer px-3 py-2">
-                          <div class="text-uppercase text-muted small" id="courseID" style="display:none">${viewCourses.id}</div>
+                          <div class="text-uppercase small" id="courseId${viewCourses.id}" style="display:none;color:#f86c6b">${viewCourses.id}</div>
                             <a class="btn-block text-muted d-flex justify-content-between align-items-center">
-                              <button class="btn btn-block btn-primary approveBtn" type="button" id="approveBtn ${viewCourses.id}">Approve</button>
+                              <button class="btn btn-block btn-primary" type="button" id="${viewCourses.id}">Approve</button>
                             </a>
                           </div>
                         </div>
@@ -112,34 +112,56 @@ const fetchCourses = () => {
       console.log(error)
     })
 }
-const approveCourses = () => {
-  console.log('welcome')
+const approveCourses = (URL, dataBody, courseID) => {
+  const bearer = `${token}`
+  fetch(URL, {
+    method: 'PATCH',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'token':bearer,
+      'Access-Control-Allow-Origin': '*'
+    },
+    body:dataBody
+  })
+    .then((res) => {
+      if (res.status === '401') {
+        // eslint-disable-next-line no-alert
+        alert('Access denied')
+        window.location.replace('./adminHome.html')
+      } else {
+        return res.json()
+      }
+    })
+    .then((data) => {
+      if (data.success === 'true') {
+        document.getElementById(`courseId${courseID}`).innerHTML = `${data.message}`
+        document.getElementById(`courseId${courseID}`).style.display = 'inline'
+      } else {
+        document.getElementById(`courseId${courseID}`).innerHTML = `${data.message}`
+        document.getElementById(`courseId${courseID}`).style.display = 'inline'
+      }
+    })
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error)
+    })
 }
-// const getApproval = () => {
-//   // const elementsArray = document.querySelectorAll('.approveBtn')
-//   // elementsArray.forEach((elem) => {
-//   //   elem.addEventListener('click', () => {
-//   //   // this function does stuff
-//   //     if (event.target.parentElement.classList.contains('approveBtn')) {
-//   //       console.log('button clicked')
-//   //       approveCourses()
-//   //     }
-//   //   })
-//   // })
-// }
-
-
-const doSomething = (e) => {
+const getApproved = (e) => {
   if (e.target !== e.currentTarget) {
-    const clickedItem = e.target.id
-    // eslint-disable-next-line no-alert
-    alert(`Hello ${clickedItem}`)
-    approveCourses()
+    const courseID = e.target.id
+    const approveURL = `https://cbtng.herokuapp.com/api/v1/courses/${courseID}`
+    const approveBody = JSON.stringify({
+      courseAvailability : 'true'
+    })
+    approveCourses(approveURL, approveBody, courseID)
   }
   e.stopPropagation()
 }
+
 const theParent = document.querySelector('#courseView')
-theParent.addEventListener('click', doSomething, false)
+theParent.addEventListener('click', getApproved, false)
+
 document.getElementById('addCourses').addEventListener('submit', addCourses)
 window.onload = function () {
   if (!token) {
@@ -148,9 +170,6 @@ window.onload = function () {
     alert('Kindly login or create Account')
   } else {
     fetchCourses()
-    // if (fetchCourses) {
-    //   getApproval()
-    // }
   }
 }
 

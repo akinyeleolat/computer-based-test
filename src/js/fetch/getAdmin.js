@@ -78,8 +78,8 @@ const fetchAdmin = () => {
                     ${viewAdmin.faculty.toUpperCase()}
                         </td>
                     <td>
-                    <div id="candidateId" style="display:none">${viewAdmin.id}</div>
-                      <button class="btn btn-block btn-primary" type="button">Approve</button>
+                      <button class="btn btn-block btn-primary" type="button" id="${viewAdmin.id}">Approve</button>
+                      <div class="small text-muted" id="adminId${viewAdmin.id}" style="display:none;font-color:#f86c6b">${viewAdmin.id}</div>
                     </td>
                   </tr>`
         })
@@ -98,5 +98,55 @@ const fetchAdmin = () => {
       console.log(error)
     })
 }
-
-
+const approveAdmin = (URL, dataBody, adminID) => {
+  document.getElementById(`adminId${adminID}`).innerHTML = 'approving admin'
+  const bearer = `${token}`
+  fetch(URL, {
+    method: 'PATCH',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      token:bearer,
+      'Access-Control-Allow-Origin': '*'
+    },
+    body:dataBody
+  })
+    .then((res) => {
+      if (res.status === '401') {
+        // eslint-disable-next-line no-alert
+        alert('Access denied')
+        window.location.replace('./adminHome.html')
+      } else {
+        return res.json()
+      }
+    })
+    .then((data) => {
+      if (data.success === 'true') {
+        document.getElementById(`adminId${adminID}`).innerHTML = `${data.message}`
+        document.getElementById(`adminId${adminID}`).style.display = 'inline'
+      } else {
+        document.getElementById(`adminId${adminID}`).innerHTML = `${data.message}`
+        document.getElementById(`adminId${adminID}`).style.display = 'inline'
+      }
+    })
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.log(error)
+    })
+}
+const getApproved = (e) => {
+  if (e.target !== e.currentTarget) {
+    const adminID = e.target.id
+    // // eslint-disable-next-line no-alert
+    // alert(`Hello ${clickedItem}`)
+    // const id = clickedItem
+    const approveURL = `https://cbtng.herokuapp.com/api/v1/admins/${adminID}`
+    const approveBody = JSON.stringify({
+      approve : true
+    })
+    approveAdmin(approveURL, approveBody, adminID)
+  }
+  e.stopPropagation()
+}
+const theParent = document.querySelector('#adminView')
+theParent.addEventListener('click', getApproved, false)

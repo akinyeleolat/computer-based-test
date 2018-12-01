@@ -79,7 +79,7 @@ const fetchAdmin = () => {
                         </td>
                     <td>
                       <button class="btn btn-block btn-primary" type="button" id="${viewAdmin.id}">Approve</button>
-                      <div class="small text-muted" id="adminId${viewAdmin.id}" style="display:none;font-color:#f86c6b">${viewAdmin.id}</div>
+                      <div class="small" id="adminId${viewAdmin.id}" style="display:none;color:#f86c6b">${viewAdmin.id}</div>
                     </td>
                   </tr>`
         })
@@ -99,14 +99,13 @@ const fetchAdmin = () => {
     })
 }
 const approveAdmin = (URL, dataBody, adminID) => {
-  document.getElementById(`adminId${adminID}`).innerHTML = 'approving admin'
   const bearer = `${token}`
   fetch(URL, {
     method: 'PATCH',
     headers: {
-      Accept: 'application/json',
+      'Accept': 'application/json',
       'Content-Type': 'application/json',
-      token:bearer,
+      'token':bearer,
       'Access-Control-Allow-Origin': '*'
     },
     body:dataBody
@@ -117,6 +116,7 @@ const approveAdmin = (URL, dataBody, adminID) => {
         alert('Access denied')
         window.location.replace('./adminHome.html')
       } else {
+        console.log(res.text)
         return res.json()
       }
     })
@@ -137,12 +137,9 @@ const approveAdmin = (URL, dataBody, adminID) => {
 const getApproved = (e) => {
   if (e.target !== e.currentTarget) {
     const adminID = e.target.id
-    // // eslint-disable-next-line no-alert
-    // alert(`Hello ${clickedItem}`)
-    // const id = clickedItem
     const approveURL = `https://cbtng.herokuapp.com/api/v1/admins/${adminID}`
     const approveBody = JSON.stringify({
-      approve : true
+      approve : 'true'
     })
     approveAdmin(approveURL, approveBody, adminID)
   }

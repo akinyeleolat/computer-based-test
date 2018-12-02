@@ -285,20 +285,21 @@
                       <i class="fa fa-align-justify"></i> Question List<a href="javascript:location.reload(true)" style="float:right">Refresh Page</a></div>
                     <div class="card-body">
                       <!-- Button trigger modal-->
+                      <form id="getQuestions">
                       <div class="row">
-                        <form id="getQuestions">
+                        
                           <div class="form-group col-sm-4">
                               <select class="form-control" id="courseList">
                               </select>
                       </div>
                       <div class="form-group col-sm-4">
-                          <input class="btn btn-info" type="submit" value="View Questions/ Refresh">
-                        </form>
                           <!-- <a href="#primaryModal" rel="modal:open"> -->
-                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#primaryModal">Add Questions</button>
+                            <input class="btn btn-info" type="submit" value="View Questions/ Refresh">
+                            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#primaryModal">Add Questions</button></form>
                           <!-- </a> -->
                         </div>
                       </div>
+                    </form>
                       <hr>
                       <div id="questionView">
 

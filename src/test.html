@@ -240,24 +240,27 @@
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-header">
-                      <i class="fa fa-align-justify"></i> Question List</div>
+                      <i class="fa fa-align-justify"></i> Question List<a href="javascript:location.reload(true)" style="float:right">Refresh Page</a></div>
                     <div class="card-body">
                       <!-- Button trigger modal-->
+                      <form id="getQuestions">
                       <div class="row">
                           <div class="form-group col-sm-4">
-                        <select class="form-control" id="ccmonth">
-                          <option>Intro.to Programming</option>
-                          <option>Algebra for Programmers</option>
-                          <option>Data Logic</option>
-                          <option>Web and Internet Technologies 101</option>
-                        </select>
+                            <select class="form-control" id="courseList">
+                            </select>
                       </div>
                       <div class="form-group col-sm-4">
-                          <button class="btn btn-primary" type="button">Load Questions</button>
+                          <input class="btn btn-primary" type="submit" value="Load Questions"></form>
                         </div>
                       </div>
                       <hr>
-      <table class="table table-responsive-sm table-hover table-outline mb-0">                                      <thead class="thead-light">
+                      <form>
+                        <div id="questionView">
+
+                        </div>
+                      </form>
+                      
+      <!-- <table class="table table-responsive-sm table-hover table-outline mb-0">                                      <thead class="thead-light">
             <tr>
                 <th class="text-center">
                 <i class="icon-people"></i>
@@ -502,7 +505,7 @@
                             </td>
                         </tr>
         </tbody>
-        </table>
+        </table> -->
                       </div>
                       </div>
                       </div>
@@ -825,5 +828,7 @@
     <script src="node_modules/chart.js/dist/Chart.min.js"></script>
     <script src="node_modules/@coreui/coreui-plugin-chartjs-custom-tooltips/dist/js/custom-tooltips.min.js"></script>
     <script src="js/main.js"></script>
+    <!-- fetch -->
+    <script src="js/fetch/manage_test.js"></script>
   </body>
 </html>

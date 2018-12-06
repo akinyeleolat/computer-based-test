@@ -49,7 +49,7 @@ const addUser = (event) => {
   const department = document.getElementById('department').value.trim()
   const faculty = document.getElementById('faculty').value.trim()
   const accountType = document.querySelector('.form-check-input:checked').value
-  console.log(accountType)
+  
   const imageUrl =  imageLink
   
   // check password matched

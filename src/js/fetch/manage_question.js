@@ -133,7 +133,7 @@ const fetchQuestions = (URL) => {
         data.questions.forEach((viewQuestions) => {
           outputQuestions += `<tr>
           <td class="text-center">
-            1
+            *
           </td>
           <td>
             <div>${viewQuestions.questions}</div>

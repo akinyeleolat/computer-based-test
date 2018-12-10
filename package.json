@@ -38,7 +38,7 @@
     "nyc": "^13.0.1",
     "pg": "^7.4.3",
     "pg-promise": "^8.4.6",
-    "thesaurus-com": "^1.2.0",
+    "thesaurus-com": "^1.2.1",
     "wordnet-db": "^3.1.11"
   },
   "devDependencies": {

@@ -21,6 +21,7 @@ class ResultController {
     const { answers } = req.body;
     const courseId = parseInt(req.params.id, 10);
     let testScore = 0;
+    let scoreSheet = 0;
     const testReady = process.env.TEST_AVAILABLE;
     const activeUser = process.env.USER_ACTIVE;
     db.task('check course', data => data.course.findById(courseId)
@@ -74,8 +75,9 @@ class ResultController {
                             }
                             testScore += 0;
                           }
+                          scoreSheet =  testScore - 1;
                           const updateResult = {
-                            userId, courseId, testScore,
+                            userId, courseId, scoreSheet,
                           };
                           db.task('update result', data => data.results.modify(updateResult, resultId)
                             .then(() => {
@@ -83,7 +85,7 @@ class ResultController {
                               if (value === last) {
                                 return res.status(201).json({
                                   success: 'true',
-                                  testScore: `You scored ${testScore} point(s)`,
+                                  testScore: `You scored ${scoreSheet} point(s)`,
                                 });
                               }
                             }))

@@ -31,7 +31,7 @@ export default class Question {
 */
 
   findById(id) {
-    const sql = 'SELECT * FROM test_questions LEFT JOIN test_answers ON test_questions.id = test_answers.question_id WHERE test_questions.course_id = $1';
+    const sql = 'SELECT * FROM test_questions LEFT JOIN test_answers ON test_questions.id = test_answers.question_id WHERE test_questions.id = $1';
     return this.db.many(sql, id);
   }
   /**

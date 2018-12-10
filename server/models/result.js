@@ -32,7 +32,7 @@ export default class Result {
 
   modify(values, id) {
     values.id = id;
-    const sql = 'UPDATE test_results SET user_id=${userId}, course_id=${courseId}, test_score=${testScore} WHERE id=${id} RETURNING *';
-    return this.db.query(sql, values);
+    const sql = 'UPDATE test_results SET user_id=${userId}, course_id=${courseId}, test_score=${scoreSheet} WHERE id=${id} RETURNING *';
+    return this.db.one(sql, values);
   } 
 }

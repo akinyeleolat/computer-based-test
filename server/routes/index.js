@@ -28,7 +28,8 @@ router.get('/courses/approve', CourseController.getAllCourses);
 router.post('/courses', middlewares.validatePostCourse, CourseController.postCourse);
 router.patch('/courses/:id', middlewares.validateUpdateCourse, CourseController.updateCourse);
 router.delete('/courses/:id', CourseController.deleteCourse);
-router.post('/courses/:id/questions', middlewares.validatePostQuestion, QuestionController.postQuestion);
+router.post('/courses/:id/questions',
+ middlewares.validatePostQuestion, QuestionController.postQuestion);
 
 
 export default router;

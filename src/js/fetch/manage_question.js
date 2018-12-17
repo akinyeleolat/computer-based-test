@@ -11,20 +11,20 @@ const addQuestions = (event) => {
   const courseID = selCourse.value
   //  get form question input
   const question = document.getElementById('question').value.trim()
-  const OptionOne = document.getElementById('OptionOne').value
-  const OptionTwo = document.getElementById('OptionTwo').value
-  const OptionThree = document.getElementById('OptionThree').value
-  const OptionFour = document.getElementById('OptionFour').value
+  const optionOne = document.getElementById('OptionOne').value
+  const optionTwo = document.getElementById('OptionTwo').value
+  const optionThree = document.getElementById('OptionThree').value
+  const optionFour = document.getElementById('OptionFour').value
   const correctAnswer = document.getElementById('correctAnswer').value.trim()
   if (!token) {
     verifyToken()
   } else {
     const dataBody = JSON.stringify({
       question,
-      OptionOne,
-      OptionTwo,
-      OptionThree,
-      OptionFour,
+      optionOne,
+      optionTwo,
+      optionThree,
+      optionFour,
       correctAnswer
     })
     const URL = `https://cbtng.herokuapp.com/api/v1/courses/${ courseID }/questions`
@@ -133,7 +133,7 @@ const fetchQuestions = (URL) => {
         data.questions.forEach((viewQuestions) => {
           outputQuestions += `<tr>
           <td class="text-center">
-            1
+            *
           </td>
           <td>
             <div>${viewQuestions.questions}</div>
@@ -179,7 +179,7 @@ const createQuestions = (URL, dataBody) => {
   fetch(URL, {
     method: 'POST',
     headers: {
-      Accept: 'application/json',
+      'Accept': 'application/json',
       'Content-Type': 'application/json',
       token:bearer,
       'Access-Control-Allow-Origin': '*'

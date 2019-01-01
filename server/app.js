@@ -12,14 +12,13 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
+app.use(express.static(path.join(__dirname, '../client')));
 app.get('/', (req, res) => {
   res.status(200).json({
     success: 'true',
     message: 'Welcome to landing page',
   });
 });
-app.use(express.static(path.join(__dirname, '../client')));
 app.use('/api/v1', router);
 
 

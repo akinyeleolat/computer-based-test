@@ -1,6 +1,5 @@
 /.idea
 /.vs
 node_modules
-dist
 src/admin.txt
 src/candidate.txt

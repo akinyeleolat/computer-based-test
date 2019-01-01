@@ -19,9 +19,9 @@ app.get('/', (req, res) => {
     message: 'Welcome to landing page',
   });
 });
-
-app.use('/api/v1', router);
 app.use(express.static(path.join(__dirname, '../client')));
+app.use('/api/v1', router);
+
 
 app.use('*', (err, req, res, next) => {
   const statusCode = err.statusCode || 500;

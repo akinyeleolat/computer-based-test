@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
 import router from './routes';
 
 const app = express();
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/v1', router);
+app.use(express.static(path.join(__dirname, '../client')));
 
 app.use('*', (err, req, res, next) => {
   const statusCode = err.statusCode || 500;
